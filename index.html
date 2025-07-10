@@ -634,7 +634,7 @@
             max-width: 1000px; /* Adjusted max-width for slider container */
             margin: 0 auto;
             overflow: hidden;
-            padding-bottom: 2rem; /* Space for dots */
+            /* Removed padding-bottom for dots */
         }
 
         .testimonial-wrapper {
@@ -793,26 +793,7 @@
             }
         }
 
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 0.5rem;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: var(--gray);
-            border-radius: var(--rounded-full);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .dot.active {
-            background-color: var(--primary);
-            transform: scale(1.2);
-        }
+        /* Removed .slider-dots and .dot styles */
         
         /* ===== ORDER FORM SECTION ===== */
         .order-form-section {
@@ -1353,9 +1334,7 @@
                     <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
                     <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                <div class="slider-dots" id="slider-dots">
-                    <!-- Slider dots akan diisi oleh JavaScript -->
-                </div>
+                <!-- Removed the slider-dots div -->
             </div>
         </div>
     </section>
@@ -2973,9 +2952,9 @@
 
         function renderTestimonials() {
             const testimonialWrapper = document.getElementById('testimonial-wrapper');
-            const sliderDots = document.getElementById('slider-dots');
+            // Removed the sliderDots element from here
             testimonialWrapper.innerHTML = '';
-            sliderDots.innerHTML = '';
+            // Removed sliderDots.innerHTML = '';
 
             testimonialsData.forEach((testimonial, index) => {
                 const testimonialCard = document.createElement('div');
@@ -2997,29 +2976,14 @@
                 testimonialWrapper.appendChild(testimonialCard);
             });
 
-            // Create one dot per testimonial card for direct navigation
-            testimonialsData.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.className = 'dot';
-                dot.setAttribute('data-index', index);
-                dot.addEventListener('click', () => {
-                    currentTestimonialIndex = index;
-                    updateTestimonialSlider();
-                    // Stop auto-slide if user manually navigates
-                    if (testimonialAutoSlideInterval) {
-                        clearInterval(testimonialAutoSlideInterval);
-                        startTestimonialAutoSlide(); // Restart after a short delay
-                    }
-                });
-                sliderDots.appendChild(dot);
-            });
+            // Removed the loop that creates dots
             updateTestimonialSlider();
         }
 
         function updateTestimonialSlider() {
             const testimonialWrapper = document.getElementById('testimonial-wrapper');
             const testimonialCards = testimonialWrapper.querySelectorAll('.testimonial-card');
-            const sliderDots = document.querySelectorAll('.dot');
+            // Removed the sliderDots element from here
 
             if (testimonialCards.length === 0) return;
 
@@ -3049,14 +3013,7 @@
             const offset = -currentTestimonialIndex * cardWidth;
             testimonialWrapper.style.transform = `translateX(${offset}px)`;
 
-            // Update dots - each dot represents a 'page' or a shift of one card
-            sliderDots.forEach((dot, index) => {
-                if (index === currentTestimonialIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
+            // Removed dot update logic
         }
 
         function startTestimonialAutoSlide() {
