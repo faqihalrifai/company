@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Pembuatan Website Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins untuk tampilan yang lebih modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            /* Warna primer yang lebih kalem dan profesional */
+            --primary: #5a67d8; /* Biru keunguan yang lebih lembut */
+            --secondary: #667eea; /* Biru medium */
+            --accent: #4299e1; /* Biru terang */
+            --danger: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            
+            --rounded-sm: 0.25rem;
+            --rounded-md: 0.5rem;
+            --rounded-lg: 0.75rem;
+            --rounded-xl: 1rem;
+            --rounded-full: 9999px;
+            
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2.25rem;
+            color: var(--primary);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+            border-radius: var(--rounded-full);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* ===== BUTTON STYLES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--rounded-lg);
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #3a86ff;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #d90429;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+            border-radius: var(--rounded-full);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            /* Mengubah gradien warna untuk tampilan yang lebih kalem */
+            background: url('https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViJTIwZGV2fGVufDB8fDB8fHww');
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViJTIwZGV2fGVufDB8fDB8fHww');
+            opacity: 0.2; /* Menambahkan opacity agar pola tidak terlalu dominan */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            border-radius: var(--rounded-xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 1;
+            animation: floatImage 3s ease-in-out infinite; /* Added float animation */
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* ===== DROPDOWN SECTION ===== */
+        .dropdown-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--rounded-xl);
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: -3rem auto 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .dropdown-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .dropdown-hint i {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        
+        .dropdown-btn:hover {
+            background-color: #3a86ff;
+            box-shadow: var(--shadow-lg); /* Stronger shadow on hover */
+            transform: scale(1.02); /* Slight scale on hover */
+        }
+
+        .dropdown-btn:active {
+            animation: pulseButton 0.3s ease-out; /* Pulse on click */
+        }
+
+        @keyframes pulseButton {
+            0% { transform: scale(1); box-shadow: var(--shadow-md); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(72, 149, 239, 0.4); }
+            100% { transform: scale(1); box-shadow: var(--shadow-md); }
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 300px;
+            box-shadow: var(--shadow-xl);
+            z-index: 10;
+            border-radius: var(--rounded-md);
+            overflow: hidden;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .dropdown-content a i {
+            width: 1.5rem;
+            text-align: center;
+            color: var(--primary);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* ===== PACKAGE SECTION ===== */
+        .package-section {
+            background-color: var(--light);
+        }
+
+        .package-selection-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .package-selection-header .btn-back {
+            background-color: var(--gray);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: var(--rounded-md);
+            transition: var(--transition);
+        }
+
+        .package-selection-header .btn-back:hover {
+            background-color: var(--dark);
+            transform: translateX(-5px);
+        }
+        
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: var(--rounded-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Stronger but smooth hover */
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden; /* For pseudo-elements */
+        }
+
+        /* Unique element for package cards */
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateY(-100%);
+            transition: transform 0.4s ease-out;
+        }
+
+        .package-card:hover::before {
+            transform: translateY(0);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-12px); /* Slightly more lift */
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15); /* Stronger shadow */
+        }
+        
+        .package-header {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .package-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-type {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+        
+        .package-features {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .feature-list {
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .feature-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .feature-item i {
+            color: var(--accent);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        .package-footer {
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 0;
+            right: 1.5rem;
+            background-color: var(--danger);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 0 0 var(--rounded-sm) var(--rounded-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: translateY(-100%);
+        }
+        
+        /* ===== PACKAGE DETAILS ===== */
+        .package-details {
+            background: white;
+            border-radius: var(--rounded-xl);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .package-details-nav {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .package-details-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .package-details-title {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .package-details-price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+        
+        .package-details-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+        
+        .details-section {
+            margin-bottom: 2rem;
+        }
+        
+        .details-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .details-section h3 i {
+            color: var(--accent);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: var(--rounded-md);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .detail-item i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            color: var(--gray);
+        }
+        
+        .package-details-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonial-section {
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden; /* Ensure slider content stays within bounds */
+        }
+
+        .testimonial-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px; /* Adjusted max-width for slider container */
+            margin: 0 auto;
+            overflow: hidden;
+            padding-bottom: 2rem; /* Space for dots */
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem; /* Space between cards */
+            padding: 0.5rem; /* Little padding for shadow visibility */
+        }
+        
+        .testimonial-card {
+            flex: 0 0 calc(100% - 0 * 1.5rem); /* Default: 1 card on mobile */
+            box-sizing: border-box;
+            background: white;
+            border-radius: var(--rounded-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease; /* Smooth hover for testimonial cards */
+            opacity: 0; /* Initial state for animation */
+            transform: scale(0.9); /* Initial state for animation */
+        }
+
+        .testimonial-card.show-card { /* Class added by JS for active card animation */
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive adjustments for testimonial cards */
+        @media (min-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 calc(50% - 0.75rem); /* 2 cards per row, accounting for gap */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                flex: 0 0 calc(33.333% - 1rem); /* 3 cards per row, accounting for gap */
+            }
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--light-gray);
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--rounded-full);
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
+        .slider-nav button {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: var(--rounded-full);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            pointer-events: all; /* Re-enable clicks for buttons */
+            z-index: 5; /* Ensure buttons are above cards */
+        }
+
+        .slider-nav button:hover {
+            background-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: var(--rounded-full);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        /* ===== ORDER FORM SECTION ===== */
+        .order-form-section {
+            background: white;
+            border-radius: var(--rounded-xl);
+            box-shadow: var(--shadow-md);
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .order-form-section h2 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .modern-input,
+        .modern-textarea,
+        .modern-select {
+            width: 100%;
+            padding: 0.85rem 1rem; /* Slightly more padding */
+            border: 1px solid var(--light-gray);
+            border-radius: var(--rounded-md);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease; /* Smooth transition for all properties */
+            background-color: white;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.06); /* Subtle inner shadow */
+        }
+
+        .modern-input:focus,
+        .modern-textarea:focus,
+        .modern-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.25), inset 0 1px 3px rgba(0,0,0,0.06); /* Stronger focus shadow */
+            background-color: var(--light); /* Slight background change on focus */
+            animation: inputGlow 0.8s infinite alternate; /* Glow animation on focus */
+        }
+
+        @keyframes inputGlow {
+            from { box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.25), inset 0 1px 3px rgba(0,0,0,0.06); }
+            to { box-shadow: 0 0 0 6px rgba(67, 97, 238, 0.4), inset 0 1px 3px rgba(0,0,0,0.08); }
+        }
+
+        .modern-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .modern-select {
+            appearance: none; /* Remove default select arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234361ee%22%20d%3D%22M287%2C114.7L159.2%2C242.5c-4.5%2C4.5-10.6%2C6.7-16.7%2C6.7s-12.2-2.2-16.7-6.7L5.4%2C114.7C0.9%2C110.2-1.3%2C104.1-1.3%2C98s2.2-12.2%2C6.7-16.7c9.1-9.1%2C23.7-9.1%2C32.8%2C0l116.7%2C116.7l116.7-116.7c9.1-9.1%2C23.7-9.1%2C32.8%2C0c9.1%2C9.1%2C9.1%2C23.7%2C0%2C32.8L287%2C114.7z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+            padding-right: 2.5rem; /* Make space for the custom arrow */
+        }
+
+        .form-actions {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* ===== ORDER CONFIRMATION ===== */
+        .confirmation-container {
+            background: white;
+            border-radius: var(--rounded-xl);
+            box-shadow: var(--shadow-md);
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+            animation: bounceIn 0.5s;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        
+        .confirmation-title {
+            color: var(--success);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .confirmation-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .screenshot-instruction {
+            background-color: #e0f7fa; /* Light cyan background */
+            color: #00796b; /* Darker cyan text */
+            padding: 1rem 1.5rem;
+            border-radius: var(--rounded-md);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #b2ebf2; /* Light border */
+        }
+        
+        .screenshot-instruction i {
+            font-size: 1.5rem;
+            color: #0097a7; /* Even darker cyan icon */
+        }
+        
+        .order-summary {
+            background-color: var(--light);
+            border-radius: var(--rounded-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .order-summary h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .order-summary h3 i {
+            color: var(--accent);
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .summary-label {
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .summary-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            width: 1.25rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--rounded-full);
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--rounded-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification i {
+            font-size: 1.25rem;
+        }
+
+        /* ===== LOADING OVERLAY ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loading-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-spinner {
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate.fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+        .scroll-animate.fade-in.show {
+            opacity: 1;
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .dropdown-content {
+                min-width: 250px;
+            }
+            
+            .package-details-title {
+                font-size: 1.75rem;
+            }
+            
+            .package-details-price {
+                font-size: 2rem;
+            }
+            
+            .confirmation-title {
+                font-size: 2rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .slider-nav button {
+                padding: 0.5rem 0.75rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 4rem 0;
+            }
+            
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .dropdown-section {
+                padding: 1.5rem;
+            }
+            
+            .dropdown-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .confirmation-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .confirmation-title {
+                font-size: 1.75rem;
+            }
+
+            .order-form-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        ============================================
+        HERO SECTION
+        ============================================ 
+    -->
+    <section class="hero scroll-animate" id="landing-page">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Jasa Pembuatan Website Profesional</h1>
+                <p class="hero-subtitle">Kami membantu bisnis Anda tumbuh dengan website berkualitas tinggi, desain menarik, dan performa optimal. Solusi lengkap untuk kebutuhan digital Anda.</p>
+                <img src="https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2ViJTIwZGV2fGVufDB8fDB8fHww" alt="Pembuatan Website" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        DROPDOWN SECTION
+        ============================================ 
+    -->
+    <div class="dropdown-section scroll-animate" id="dropdown-section">
+        <div class="dropdown-hint">
+            <i class="fas fa-hand-pointer"></i>
+            <span>Klik tombol di bawah untuk menemukan solusi website yang Anda butuhkan</span>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-btn">
+                <i class="fas fa-search"></i>
+                Tentukan Kebutuhan Anda
+            </button>
+            <div class="dropdown-content" id="website-types">
+                <!-- Dropdown items akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+        ============================================
+        TESTIMONIAL SECTION
+        ============================================ 
+    -->
+    <section class="section testimonial-section scroll-animate fade-in" id="testimonial-section">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Klien Kami?</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-wrapper" id="testimonial-wrapper">
+                    <!-- Testimonial cards akan diisi oleh JavaScript -->
+                </div>
+                <div class="slider-nav">
+                    <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-dots" id="slider-dots">
+                    <!-- Slider dots akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        FOOTER
+        ============================================ 
+    -->
+    <footer id="main-footer" class="scroll-animate fade-in">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Kami adalah tim profesional yang berdedikasi untuk memberikan solusi website terbaik untuk bisnis dan institusi Anda.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/62859148219009" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/faqihalrf" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@faqihalrf" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right"></i> Pembuatan Website</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Desain UI/UX</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> SEO Optimization</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Maintenance</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <div class="footer-links">
+                        <a href="https://maps.app.goo.gl/your-location-link" target="_blank"><i class="fas fa-map-marker-alt"></i> Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman Suci Blok C3 No 1</a>
+                        <a href="tel:+62859148219009"><i class="fas fa-phone"></i> +62 859 1482 19009</a>
+                        <a href="mailto:faqihalrf@gmail.com"><i class="fas fa-envelope"></i> faqihalrf@gmail.com</a>
+                        <a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 9:00 - 17:00</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Jasa Pembuatan Website Profesional. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+        ============================================
+        PACKAGE SELECTION SECTION
+        ============================================ 
+    -->
+    <section class="section package-section" id="package-selection" style="display: none;">
+        <div class="container">
+            <div class="package-selection-header">
+                <button class="btn btn-secondary btn-back" id="back-to-landing-from-packages">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <h2 class="section-title" id="package-title" style="flex-grow: 1; margin-bottom: 0;">Pilih Paket yang Tepat untuk Anda</h2>
+            </div>
+            <div class="packages-container" id="packages-container">
+                <!-- Package cards akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        PACKAGE DETAILS SECTION
+        ============================================ 
+    -->
+    <section class="section" id="package-details" style="display: none;">
+        <div class="container">
+            <div class="package-details" id="package-details-content">
+                <!-- Package details akan diisi oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        ORDER FORM SECTION
+        ============================================ 
+    -->
+    <section class="section" id="order-form" style="display: none;">
+        <div class="container">
+            <div class="order-form-section">
+                <h2 class="section-title">Lengkapi Detail Pemesanan</h2>
+                <div class="notification-message" style="background-color: var(--warning); color: var(--dark); padding: 1rem; border-radius: var(--rounded-md); margin-bottom: 1.5rem; text-align: left; box-shadow: var(--shadow-sm);">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>*Penting*: Setelah klik "Konfirmasi via WhatsApp", Anda akan diarahkan ke WhatsApp untuk mengirim detail pesanan. Setelah terkirim, mohon kembali ke halaman ini untuk melihat Nomor Pesanan Anda.</span>
+                </div>
+                <form id="order-details-form">
+                    <div class="form-group">
+                        <label for="customer-name">Nama Lengkap:</label>
+                        <input type="text" id="customer-name" name="customerName" required class="modern-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-email" name="customerEmail" required class="modern-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">Nomor Telepon (WhatsApp):</label>
+                        <input type="tel" id="customer-phone" name="customerPhone" placeholder="Contoh: 6281234567890" required class="modern-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Metode Pembayaran:</label>
+                        <select id="payment-method" name="paymentMethod" required class="modern-select">
+                            <option value="">Pilih Metode Pembayaran</option>
+                            <option value="Dana">Dana</option>
+                            <option value="OVO">OVO</option>
+                            <option value="QRIS">QRIS</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-notes">Catatan Tambahan (opsional):</label>
+                        <textarea id="customer-notes" name="customerNotes" rows="4" class="modern-textarea"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="back-to-details">
+                            <i class="fas fa-arrow-left"></i> Kembali ke Detail Paket
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="confirm-order-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Konfirmasi via WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        ORDER CONFIRMATION SECTION
+        ============================================ 
+    -->
+    <section class="section" id="order-confirmation" style="display: none;">
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1 class="confirmation-title">Terima Kasih! Pesanan Anda Telah Diterima.</h1>
+                <p class="confirmation-subtitle">Kami akan segera memproses pesanan Anda dan menghubungi Anda dalam waktu 1x24 jam.</p>
+                
+                <!-- New instruction for screenshot -->
+                <div class="screenshot-instruction">
+                    <i class="fas fa-camera"></i>
+                    <span>Mohon *screenshot* halaman ini sebagai bukti pesanan Anda untuk memudahkan proses konfirmasi dengan penjual.</span>
+                </div>
+
+                <div class="order-summary" id="order-summary">
+                    <!-- Order summary akan diisi oleh JavaScript -->
+                </div>
+                <a href="#" class="btn btn-primary btn-lg" id="back-to-home">
+                    <i class="fas fa-home"></i>
+                    Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ============================================
+        NOTIFICATION
+        ============================================ 
+    -->
+    <div class="notification" id="notification">
+        <i class="fas fa-spinner fa-spin"></i>
+        <span>Paket Anda sedang dibuat, mohon tunggu.</span>
+    </div>
+
+    <!-- 
+        ============================================
+        LOADING OVERLAY
+        ============================================ 
+    -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+        // ============================================
+        // DATA LAYANAN DAN PAKET
+        // ============================================
+        const services = [
+            {
+                id: 'landing-page',
+                name: 'Landing Page',
+                icon: 'fas fa-window-maximize',
+                description: 'Halaman tunggal yang dirancang khusus untuk kampanye pemasaran atau produk tertentu dengan konversi tinggi.',
+                packages: {
+                    starter: {
+                        price: 'Rp 250.000',
+                        features: [
+                            '1 Halaman Utama Responsif',
+                            'Desain Minimalis',
+                            'Form Kontak Sederhana',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: '1 Halaman Utama',
+                            features: 'Desain Responsif, Form Kontak Sederhana',
+                            storage: '200 MB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '3 Hari Kerja',
+                            analytics: 'Tidak Termasuk',
+                            mobile: 'Optimasi Dasar Mobile'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 500.000',
+                        features: [
+                            '1 Halaman Utama Responsif',
+                            'Desain Modern',
+                            'Form Kontak dengan Validasi',
+                            'Integrasi Media Sosial',
+                            'Optimasi Dasar SEO',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: '1 Halaman Utama',
+                            features: 'Desain Responsif, Form Kontak, Integrasi Media Sosial, Optimasi Dasar SEO',
+                            storage: '1 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '5 Hari Kerja',
+                            analytics: 'Integrasi Google Analytics Dasar',
+                            mobile: 'Optimasi untuk Mobile Devices'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 700.000',
+                        features: [
+                            '1 Halaman Utama + 1 Sub Halaman',
+                            'Desain Custom Responsif',
+                            'Form Kontak dengan Auto-responder',
+                            'Integrasi Media Sosial Lengkap',
+                            'SEO On-Page Lengkap',
+                            'Analytics Integration',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: '1 Halaman Utama + 1 Sub Halaman',
+                            features: 'Desain Custom Responsif, Form Kontak dengan Auto-responder, Integrasi Media Sosial Lengkap, SEO On-Page Lengkap, Analytics Integration',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '7 Hari Kerja',
+                            analytics: 'Google Analytics & Tag Manager',
+                            mobile: 'Optimasi Advanced untuk Mobile'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 1.500.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            '1 Halaman Utama + 3 Sub Halaman',
+                            'Desain Premium & Interaktif',
+                            'Form Kontak + Sistem CRM Dasar',
+                            'Integrasi Media Sosial & Chat',
+                            'SEO Lengkap + Konten Optimasi',
+                            'Analytics & Heatmap Integration',
+                            'A/B Testing Dasar',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: '1 Halaman Utama + 3 Sub Halaman',
+                            features: 'Desain Premium & Interaktif, Form Kontak + Sistem CRM Dasar, Integrasi Media Sosial & Live Chat, SEO Lengkap + Konten Optimasi, Analytics & Heatmap Integration, A/B Testing Dasar',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
+                            duration: '10 Hari Kerja',
+                            analytics: 'Google Analytics, Tag Manager & Hotjar',
+                            mobile: 'Optimasi Premium untuk Mobile & Tablet'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Sesuai Kebutuhan Anda',
+                            'Desain Sepenuhnya Custom',
+                            'Skalabilitas Tinggi',
+                            'Dukungan Prioritas',
+                            'Konsultasi Mendalam'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan',
+                            analytics: 'Disesuaikan',
+                            mobile: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'ecommerce',
+                name: 'E-commerce',
+                icon: 'fas fa-shopping-cart',
+                description: 'Website toko online lengkap dengan sistem manajemen produk, pembayaran, dan pengiriman untuk bisnis retail Anda.',
+                packages: {
+                    starter: {
+                        price: 'Rp 500.000',
+                        features: [
+                            'Hingga 10 Produk',
+                            'Desain Toko Responsif',
+                            'Sistem Keranjang Belanja Dasar',
+                            'Pembayaran via Transfer Bank',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: 'Halaman Produk, Keranjang, Checkout',
+                            features: 'Desain Responsif, Keranjang Belanja Dasar, Transfer Bank',
+                            storage: '1 GB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '7 Hari Kerja',
+                            payment: 'Transfer Bank',
+                            products: 'Hingga 10 Produk'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 1.000.000', // Harga disesuaikan
+                        features: [
+                            'Hingga 50 Produk',
+                            'Desain Toko Responsif',
+                            'Sistem Keranjang Belanja',
+                            'Pembayaran via Transfer Bank',
+                            'Manajemen Produk Dasar',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout',
+                            features: 'Desain Responsif, Sistem Keranjang Belanja, Pembayaran via Transfer Bank, Manajemen Produk Dasar',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '14 Hari Kerja',
+                            payment: 'Transfer Bank',
+                            products: 'Hingga 50 Produk'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Hingga 200 Produk',
+                            'Desain Toko Custom',
+                            'Sistem Keranjang Belanja',
+                            'Pembayaran via Transfer Bank & COD',
+                            'Manajemen Stok & Kategori',
+                            'Sistem Diskon Dasar',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout, Akun Pelanggan',
+                            features: 'Desain Custom Responsif, Sistem Keranjang Belanja, Pembayaran via Transfer Bank & COD, Manajemen Stok & Kategori, Sistem Diskon Dasar',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '21 Hari Kerja',
+                            payment: 'Transfer Bank & COD',
+                            products: 'Hingga 200 Produk'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Produk Tidak Terbatas',
+                            'Desain Premium & Unik',
+                            'Sistem Keranjang Belanja Lengkap',
+                            'Pembayaran via Transfer, COD & Gateway (Midtrans)',
+                            'Manajemen Stok Lengkap',
+                            'Sistem Diskon & Promo',
+                            'Laporan Penjualan',
+                            'Integrasi dengan Marketplace',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout, Akun Pelanggan, Halaman Admin, Laporan',
+                            features: 'Desain Premium & Unik, Sistem Keranjang Belanja Lengkap, Pembayaran via Transfer Bank, COD & Payment Gateway, Manajemen Stok Lengkap, Sistem Diskon & Promo, Laporan Penjualan, Integrasi dengan Marketplace',
+                            storage: '20 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
+                            duration: '30 Hari Kerja',
+                            payment: 'Transfer Bank, COD & Payment Gateway (Midtrans)',
+                            products: 'Produk Tidak Terbatas'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur E-commerce Lengkap',
+                            'Integrasi Sistem Eksternal',
+                            'Optimasi Konversi',
+                            'Dukungan Prioritas',
+                            'Konsultasi Bisnis'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan',
+                            payment: 'Disesuaikan',
+                            products: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'university',
+                name: 'Website Kampus',
+                icon: 'fas fa-university',
+                description: 'Website institusi pendidikan dengan sistem informasi akademik terintegrasi untuk universitas, sekolah, atau kursus.',
+                packages: {
+                    starter: {
+                        price: 'Rp 700.000',
+                        features: [
+                            'Halaman Profil Kampus Dasar',
+                            'Informasi Program Studi',
+                            'Form Kontak',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Profil, Program Studi, Kontak',
+                            features: 'Desain Responsif, Informasi Statis',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '10 Hari Kerja',
+                            students: 'Informasi Statis',
+                            faculty: 'Profil Dasar'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Halaman Profil Kampus',
+                            'Informasi Program Studi',
+                            'Galeri Foto & Video',
+                            'Berita & Pengumuman',
+                            'Form Kontak',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Profil, Program Studi, Berita, Pengumuman, Galeri, Kontak',
+                            features: 'Desain Responsif, Sistem Berita & Pengumuman, Galeri Foto & Video, Form Kontak',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '20 Hari Kerja',
+                            students: 'Informasi Statis (Tidak Terintegrasi)',
+                            faculty: 'Profil Dasar'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        features: [
+                            'Semua Fitur Basic',
+                            'Sistem Penerimaan Mahasiswa Baru Online',
+                            'Kalender Akademik Interaktif',
+                            'Integrasi dengan Media Sosial',
+                            'Portal Informasi Dosen',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Basic + Penerimaan Mahasiswa Baru, Kalender Akademik, Portal Dosen, FAQ',
+                            features: 'Semua fitur Basic + Sistem Penerimaan Mahasiswa Baru Online, Kalender Akademik Interaktif, Integrasi dengan Media Sosial, Portal Informasi Dosen',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '30 Hari Kerja',
+                            students: 'Formulir Pendaftaran Online',
+                            faculty: 'Portal Informasi Dosen'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 10.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Semua Fitur Standard',
+                            'Sistem Informasi Akademik (SIA)',
+                            'Portal Mahasiswa & Dosen',
+                            'E-learning Dasar',
+                            'Integrasi dengan Sistem Kampus',
+                            'Laporan Administrasi',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Portal Mahasiswa, Portal Dosen, E-learning, Administrasi',
+                            features: 'Semua fitur Standard + Sistem Informasi Akademik (SIA), Portal Mahasiswa & Dosen, E-learning Dasar, Integrasi dengan Sistem Kampus, Laporan Administrasi',
+                            storage: '50 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
+                            duration: '60 Hari Kerja',
+                            students: 'Portal Mahasiswa Lengkap',
+                            faculty: 'Portal Dosen & Administrasi'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Sistem Informasi Akademik Lengkap',
+                            'Integrasi Sistem Kampus',
+                            'Portal Mahasiswa & Dosen Interaktif',
+                            'E-learning Lanjutan',
+                            'Dukungan Prioritas'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan',
+                            students: 'Disesuaikan',
+                            faculty: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'portfolio',
+                name: 'Portofolio',
+                icon: 'fas fa-briefcase',
+                description: 'Website pribadi untuk menampilkan karya dan kemampuan profesional dengan desain yang elegan dan personal.',
+                packages: {
+                    starter: {
+                        price: 'Rp 250.000',
+                        features: [
+                            'Halaman Profil Pribadi',
+                            'Galeri Karya Sederhana (Hingga 5)',
+                            'Form Kontak',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Profil, Galeri Karya, Kontak',
+                            features: 'Desain Minimalis, Galeri Sederhana, Form Kontak',
+                            storage: '200 MB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '3 Hari Kerja',
+                            projects: 'Hingga 5 Item Karya',
+                            blog: 'Tidak Termasuk'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 500.000',
+                        features: [
+                            'Halaman Profil Pribadi',
+                            'Galeri Karya Sederhana',
+                            'Form Kontak',
+                            'Desain Minimalis',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Profil, Galeri Karya, Kontak',
+                            features: 'Desain Minimalis, Galeri Karya Sederhana, Form Kontak',
+                            storage: '1 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '5 Hari Kerja',
+                            projects: 'Hingga 10 Item Karya',
+                            blog: 'Tidak Termasuk'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 700.000',
+                        features: [
+                            'Halaman Profil Lengkap',
+                            'Galeri Karya dengan Kategori',
+                            'Blog Pribadi Dasar',
+                            'Integrasi Media Sosial',
+                            'Desain Custom Menarik',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama, Profil, Galeri Karya dengan Kategori, Blog, Kontak',
+                            features: 'Desain Custom Menarik, Galeri Karya dengan Kategori, Blog Pribadi Dasar, Integrasi Media Sosial',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '7 Hari Kerja',
+                            projects: 'Hingga 30 Item Karya dengan Kategori',
+                            blog: 'Blog Dasar dengan 5 Post'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 1.200.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Halaman Profil Interaktif',
+                            'Galeri Karya dengan Filter Advanced',
+                            'Blog Pribadi Lengkap',
+                            'Integrasi Media Sosial & Testimonial',
+                            'Desain Premium & Unik',
+                            'SEO Optimasi',
+                            'Analytics Integration',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Halaman Utama Interaktif, Profil, Galeri Karya dengan Filter, Blog, Testimonial, Kontak',
+                            features: 'Desain Premium & Unik, Galeri Karya dengan Filter Advanced, Blog Pribadi Lengkap, Integrasi Media Sosial & Testimonial, SEO Optimasi, Analytics Integration',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
+                            duration: '10 Hari Kerja',
+                            projects: 'Item Karya Tidak Terbatas dengan Filter',
+                            blog: 'Blog Lengkap dengan Kategori'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Desain Portofolio Unik',
+                            'Integrasi Fitur Khusus',
+                            'Optimasi Branding',
+                            'Dukungan Prioritas',
+                            'Konsultasi Kreatif'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan',
+                            projects: 'Disesuaikan',
+                            blog: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'company',
+                name: 'Company Profile',
+                icon: 'fas fa-building',
+                description: 'Website profesional untuk perusahaan Anda dengan informasi lengkap tentang bisnis, layanan, dan tim.',
+                packages: {
+                    starter: {
+                        price: 'Rp 500.000',
+                        features: [
+                            'Hingga 3 Halaman',
+                            'Profil Perusahaan Dasar',
+                            'Form Kontak',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: 'Beranda, Tentang Kami, Kontak',
+                            features: 'Desain Responsif, Profil Perusahaan Dasar, Form Kontak',
+                            storage: '1 GB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '5 Hari Kerja'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 1.500.000', // Harga disesuaikan
+                        features: [
+                            'Hingga 5 Halaman',
+                            'Profil Perusahaan',
+                            'Layanan & Produk',
+                            'Galeri & Portfolio',
+                            'Form Kontak',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Tentang Kami, Layanan/Produk, Galeri, Kontak',
+                            features: 'Desain Responsif, Profil Perusahaan, Galeri, Form Kontak',
+                            storage: '3 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '10 Hari Kerja'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Hingga 10 Halaman',
+                            'Semua Fitur Basic',
+                            'Tim & Struktur Organisasi',
+                            'Blog Perusahaan',
+                            'Integrasi Media Sosial',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Basic + Tim, Blog, FAQ, Testimonial',
+                            features: 'Semua fitur Basic + Tim & Struktur Organisasi, Blog Perusahaan, Integrasi Media Sosial',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '15 Hari Kerja'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Halaman Tidak Terbatas',
+                            'Semua Fitur Standard',
+                            'Sistem Karir & Rekrutmen',
+                            'Klien & Testimonial',
+                            'Multilingual Support',
+                            'SEO Lengkap',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Karir, Klien, Multilingual, CMS Lengkap',
+                            features: 'Semua fitur Standard + Sistem Karir & Rekrutmen, Klien & Testimonial, Multilingual Support, SEO Lengkap',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas',
+                            duration: '25 Hari Kerja'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Perusahaan Lengkap',
+                            'Integrasi Sistem Internal',
+                            'Manajemen Konten Custom',
+                            'Dukungan Prioritas',
+                            'Konsultasi Strategis'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'blog',
+                name: 'Website Blog',
+                icon: 'fas fa-blog',
+                description: 'Platform blog profesional dengan sistem manajemen konten untuk berbagi artikel dan pemikiran Anda.',
+                packages: {
+                    starter: {
+                        price: 'Rp 250.000',
+                        features: [
+                            'Sistem Blog Dasar',
+                            'Hingga 1 Kategori',
+                            'Form Komentar',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: 'Beranda, Artikel, Kontak',
+                            features: 'Sistem Blog Dasar, Form Komentar',
+                            storage: '500 MB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '4 Hari Kerja'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 500.000',
+                        features: [
+                            'Sistem Blog Dasar',
+                            'Hingga 3 Kategori',
+                            'Form Komentar',
+                            'Integrasi Media Sosial',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Artikel, Kategori, Tentang, Kontak',
+                            features: 'Sistem Blog Dasar, Form Komentar, Integrasi Media Sosial',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '7 Hari Kerja'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 700.000',
+                        features: [
+                            'Sistem Blog Lengkap',
+                            'Hingga 10 Kategori',
+                            'Form Komentar & Newsletter',
+                            'Integrasi Media Sosial Lengkap',
+                            'Statistik Dasar',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Artikel, Kategori, Tag, Tentang, Kontak, Newsletter',
+                            features: 'Sistem Blog Lengkap, Form Komentar & Newsletter, Integrasi Media Sosial Lengkap, Statistik Dasar',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '12 Hari Kerja'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 2.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Sistem Blog Premium',
+                            'Kategori Tidak Terbatas',
+                            'Membership System',
+                            'Monetisasi & Iklan',
+                            'Analytics Lengkap',
+                            'SEO Advanced',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Membership, Monetisasi, Analytics',
+                            features: 'Sistem Blog Premium, Membership System, Monetisasi & Iklan, Analytics Lengkap, SEO Advanced',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas',
+                            duration: '20 Hari Kerja'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Blog Lanjutan',
+                            'Integrasi Platform Eksternal',
+                            'Optimasi Konten',
+                            'Dukungan Prioritas',
+                            'Strategi Konten'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'community',
+                name: 'Website Community',
+                icon: 'fas fa-users',
+                description: 'Platform komunitas online dengan forum diskusi, anggota, dan sistem interaksi sosial.',
+                packages: {
+                    starter: {
+                        price: 'Rp 700.000',
+                        features: [
+                            'Forum Diskusi Dasar',
+                            'Sistem Anggota Sederhana',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Forum, Anggota',
+                            features: 'Forum Diskusi Dasar, Sistem Anggota Sederhana',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '10 Hari Kerja'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Forum Diskusi Dasar',
+                            'Sistem Anggota',
+                            'Kategori Forum',
+                            'Moderasi Dasar',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Forum, Kategori, Anggota, Tentang',
+                            features: 'Forum Diskusi Dasar, Sistem Anggota, Kategori Forum, Moderasi Dasar',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '15 Hari Kerja'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        features: [
+                            'Forum Lengkap',
+                            'Sistem Anggota dengan Profil',
+                            'Private Messaging',
+                            'Moderasi Lengkap',
+                            'Integrasi Media Sosial',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Basic + Private Messaging, Notifikasi, Grup',
+                            features: 'Forum Lengkap, Sistem Anggota dengan Profil, Private Messaging, Moderasi Lengkap, Integrasi Media Sosial',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '25 Hari Kerja'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 8.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Forum Premium',
+                            'Sistem Membership Lengkap',
+                            'Premium Content',
+                            'Monetisasi',
+                            'Analytics & Reporting',
+                            'Mobile App Ready',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Membership Levels, Premium Content, Monetisasi',
+                            features: 'Forum Premium, Sistem Membership Lengkap, Premium Content, Monetisasi, Analytics & Reporting, Mobile App Ready',
+                            storage: '20 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas',
+                            duration: '40 Hari Kerja'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Komunitas Lanjutan',
+                            'Integrasi Platform Sosial',
+                            'Manajemen Acara',
+                            'Dukungan Prioritas',
+                            'Strategi Engagement'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'news',
+                name: 'Website Berita',
+                icon: 'fas fa-newspaper',
+                description: 'Portal berita profesional dengan sistem manajemen konten, kategori, dan editor multi-user.',
+                packages: {
+                    starter: {
+                        price: 'Rp 700.000',
+                        features: [
+                            'Sistem Berita Dasar',
+                            'Hingga 3 Kategori',
+                            'Editor Single User',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Berita, Kategori, Kontak',
+                            features: 'Sistem Berita Dasar, Editor Single User',
+                            storage: '2 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '7 Hari Kerja'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Sistem Berita Dasar',
+                            'Hingga 5 Kategori',
+                            'Editor Single User',
+                            'Form Komentar',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Berita, Kategori, Tentang, Kontak',
+                            features: 'Sistem Berita Dasar, Form Komentar, Editor Single User',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '15 Hari Kerja'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        features: [
+                            'Sistem Berita Lengkap',
+                            'Hingga 15 Kategori',
+                            'Editor Multi-User',
+                            'Sistem Subscription',
+                            'Integrasi Media Sosial',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Basic + Redaksi, Subscription, Arsip',
+                            features: 'Sistem Berita Lengkap, Editor Multi-User, Sistem Subscription, Integrasi Media Sosial',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '25 Hari Kerja'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 8.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Sistem Berita Premium',
+                            'Kategori Tidak Terbatas',
+                            'Editor dengan Level Akses',
+                            'Live Blogging',
+                            'Analytics Lengkap',
+                            'Mobile App Ready',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Live Blog, Analytics, Mobile App',
+                            features: 'Sistem Berita Premium, Editor dengan Level Akses, Live Blogging, Analytics Lengkap, Mobile App Ready',
+                            storage: '20 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas',
+                            duration: '45 Hari Kerja'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Berita Lanjutan',
+                            'Integrasi Agregator Berita',
+                            'Monetisasi Lanjutan',
+                            'Dukungan Prioritas',
+                            'Strategi Distribusi Konten'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan'
+                        }
+                    }
+                }
+            },
+            {
+                id: 'nonprofit',
+                name: 'Website Nirlaba',
+                icon: 'fas fa-hand-holding-heart',
+                description: 'Website untuk organisasi nirlaba dengan fitur donasi, program, dan relawan.',
+                packages: {
+                    starter: {
+                        price: 'Rp 500.000',
+                        features: [
+                            'Profil Organisasi Dasar',
+                            'Program & Kegiatan',
+                            'Form Kontak',
+                            'Dukungan 1 Minggu'
+                        ],
+                        details: {
+                            pages: 'Beranda, Tentang, Program, Kontak',
+                            features: 'Profil Organisasi Dasar, Program & Kegiatan, Form Kontak',
+                            storage: '1 GB Penyimpanan',
+                            support: 'Dukungan 1 Minggu via Chat',
+                            duration: '5 Hari Kerja'
+                        }
+                    },
+                    basic: {
+                        price: 'Rp 1.500.000', // Harga disesuaikan
+                        features: [
+                            'Profil Organisasi',
+                            'Program & Kegiatan',
+                            'Galeri',
+                            'Form Kontak',
+                            'Dukungan 1 Bulan'
+                        ],
+                        details: {
+                            pages: 'Beranda, Tentang, Program, Galeri, Kontak',
+                            features: 'Profil Organisasi, Program & Kegiatan, Galeri, Form Kontak',
+                            storage: '3 GB Penyimpanan',
+                            support: 'Dukungan 1 Bulan via Email',
+                            duration: '10 Hari Kerja'
+                        }
+                    },
+                    standard: {
+                        price: 'Rp 2.500.000', // Harga disesuaikan
+                        features: [
+                            'Semua Fitur Basic',
+                            'Sistem Donasi Dasar',
+                            'Form Relawan',
+                            'Testimonial & Impact',
+                            'Integrasi Media Sosial',
+                            'Dukungan 3 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Basic + Donasi, Relawan, Impact',
+                            features: 'Semua fitur Basic + Sistem Donasi Dasar, Form Relawan, Testimonial & Impact, Integrasi Media Sosial',
+                            storage: '5 GB Penyimpanan',
+                            support: 'Dukungan 3 Bulan via Email & WhatsApp',
+                            duration: '18 Hari Kerja'
+                        }
+                    },
+                    premium: {
+                        price: 'Rp 5.000.000', // Harga disesuaikan
+                        popular: true,
+                        features: [
+                            'Semua Fitur Standard',
+                            'Sistem Donasi Lengkap',
+                            'Manajemen Relawan',
+                            'Laporan Impact',
+                            'Multilingual Support',
+                            'Dukungan 6 Bulan'
+                        ],
+                        details: {
+                            pages: 'Semua halaman Standard + Sistem Donasi Lengkap, Manajemen Relawan, Laporan Impact, Multilingual Support',
+                            features: 'Sistem Donasi Lengkap, Manajemen Relawan, Laporan Impact, Multilingual Support',
+                            storage: '10 GB Penyimpanan',
+                            support: 'Dukungan 6 Bulan Prioritas',
+                            duration: '30 Hari Kerja'
+                        }
+                    },
+                    custom: {
+                        price: 'Harga Custom',
+                        features: [
+                            'Fitur Nirlaba Lanjutan',
+                            'Integrasi CRM Donatur',
+                            'Manajemen Kampanye',
+                            'Dukungan Prioritas',
+                            'Strategi Penggalangan Dana'
+                        ],
+                        details: {
+                            pages: 'Sesuai Kebutuhan',
+                            features: 'Disesuaikan',
+                            storage: 'Disesuaikan',
+                            support: 'Disesuaikan',
+                            duration: 'Disesuaikan'
+                        }
+                    }
+                }
+            }
+        ];
+
+        const testimonialsData = [
+            {
+                content: 'Website yang dibuat sangat profesional dan meningkatkan penjualan kami secara signifikan. Pelayanan tim sangat responsif dan membantu kami dari awal hingga launching.',
+                author: 'Bapak Andi',
+                role: 'Pemilik Toko Online',
+                avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+            },
+            {
+                content: 'Pelayanan cepat dan hasilnya melebihi ekspektasi. Website kami sekarang lebih modern dan mudah dikelola. Sangat direkomendasikan!',
+                author: 'Ibu Sari',
+                role: 'Pemilik Klinik Kecantikan',
+                avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+            },
+            {
+                content: 'Tim yang sangat kompeten dan membantu dari awal hingga launching website. Sistem informasi akademik yang dibuat bekerja sempurna untuk kebutuhan kampus kami.',
+                author: 'Dr. Budi',
+                role: 'Universitas Bina Nusantara',
+                avatar: 'https://randomuser.me/api/portraits/men/75.jpg'
+            },
+            {
+                content: 'Desainnya sangat menarik dan fungsionalitasnya luar biasa. Website saya kini terlihat sangat profesional dan mudah diakses oleh klien.',
+                author: 'Ibu Dewi',
+                role: 'Desainer Grafis Freelance',
+                avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
+            },
+            {
+                content: 'Sangat puas dengan hasil akhirnya! Timnya sangat membantu dalam mewujudkan ide-ide kami menjadi website yang interaktif dan mudah digunakan.',
+                author: 'Bapak Cahyo',
+                role: 'Manajer Proyek IT',
+                avatar: 'https://randomuser.me/api/portraits/men/45.jpg'
+            },
+            {
+                content: 'Pelayanan pelanggan yang sangat baik dan kualitas website yang tidak diragukan lagi. Semua fitur yang kami minta dapat diimplementasikan dengan sempurna.',
+                author: 'Nona Fitri',
+                role: 'Konsultan Bisnis',
+                avatar: 'https://randomuser.me/api/portraits/women/22.jpg'
+            }
+        ];
+
+        // ============================================
+        // VARIABEL STATE
+        // ============================================
+        let currentPage = 'landing';
+        let selectedService = null;
+        let selectedPackage = null;
+        let orderId = null;
+        let currentTestimonialIndex = 0;
+        const whatsappPhoneNumber = '62859148219009'; // Nomor WhatsApp yang diperbarui
+        const instagramUsername = 'faqihalrf'; // Username Instagram yang diperbarui
+        const tiktokUsername = 'faqihalrf'; // Username TikTok yang diperbarui
+        const companyEmail = 'faqihalrf@gmail.com'; // Email yang diperbarui
+        const companyAddress = 'Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman Suci Blok C3 No 1'; // Alamat yang diperbarui
+
+        // ============================================
+        // FUNGSI UTILITAS
+        // ============================================
+        function generateOrderId() {
+            const prefix = 'ORD';
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.floor(Math.random() * 900) + 100;
+            return `${prefix}-${timestamp}-${random}`;
+        }
+
+        function showNotification(message, duration = 3000) {
+            const notification = document.getElementById('notification');
+            notification.querySelector('span').textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, duration);
+        }
+
+        // ============================================
+        // FUNGSI NAVIGASI
+        // ============================================
+        function navigateTo(page) {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            loadingOverlay.classList.add('show'); // Tampilkan loading overlay
+
+            setTimeout(() => {
+                // Sembunyikan semua halaman
+                document.getElementById('landing-page').style.display = 'none';
+                document.getElementById('package-selection').style.display = 'none';
+                document.getElementById('package-details').style.display = 'none';
+                document.getElementById('order-form').style.display = 'none';
+                document.getElementById('order-confirmation').style.display = 'none';
+                
+                // Sembunyikan elemen-elemen yang tidak diinginkan di halaman selain landing
+                document.getElementById('dropdown-section').style.display = 'none';
+                document.getElementById('testimonial-section').style.display = 'none';
+                document.getElementById('main-footer').style.display = 'none'; // Sembunyikan footer secara default
+                
+                // Tampilkan halaman yang diminta dan atur visibilitas footer
+                switch(page) {
+                    case 'landing':
+                        document.getElementById('landing-page').style.display = 'block';
+                        document.getElementById('dropdown-section').style.display = 'block';
+                        document.getElementById('testimonial-section').style.display = 'block';
+                        document.getElementById('main-footer').style.display = 'block'; // Tampilkan footer untuk landing
+                        break;
+                    case 'package-selection':
+                        document.getElementById('package-selection').style.display = 'block';
+                        // Footer TIDAK ditampilkan di sini
+                        break;
+                    case 'package-details':
+                        document.getElementById('package-details').style.display = 'block';
+                        // Footer TIDAK ditampilkan di sini
+                        break;
+                    case 'order-form':
+                        document.getElementById('order-form').style.display = 'block';
+                        // Footer TIDAK ditampilkan di sini
+                        break;
+                    case 'order-confirmation':
+                        document.getElementById('order-confirmation').style.display = 'block';
+                        // Footer TIDAK ditampilkan di sini
+                        break;
+                }
+                
+                currentPage = page;
+                window.scrollTo(0, 0);
+                loadingOverlay.classList.remove('show'); // Sembunyikan loading overlay setelah konten dirender
+            }, 300); // Penundaan kecil untuk menunjukkan efek loading
+        }
+
+        // ============================================
+        // FUNGSI RENDER
+        // ============================================
+        function renderWebsiteTypesDropdown() {
+            const dropdown = document.getElementById('website-types');
+            dropdown.innerHTML = '';
+            
+            services.forEach(service => {
+                const link = document.createElement('a');
+                link.href = '#';
+                link.innerHTML = `<i class="${service.icon}"></i> ${service.name}`;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectedService = service;
+                    renderPackageSelection();
+                    navigateTo('package-selection');
+                });
+                dropdown.appendChild(link);
+            });
+        }
+
+        function renderPackageSelection() {
+            document.getElementById('package-title').textContent = `Pilih Paket ${selectedService.name} yang Tepat untuk Anda`;
+            
+            const packagesContainer = document.getElementById('packages-container');
+            packagesContainer.innerHTML = '';
+            
+            // Urutan paket: Starter, Basic, Standard, Premium, Custom
+            const packageOrder = ['starter', 'basic', 'standard', 'premium', 'custom'];
+
+            packageOrder.forEach(type => {
+                const pkg = selectedService.packages[type];
+                if (!pkg) return; // Skip if package type doesn't exist for this service
+
+                const packageCard = document.createElement('div');
+                packageCard.className = 'package-card scroll-animate'; // Tambahkan class scroll-animate
+                
+                if (pkg.popular) {
+                    packageCard.innerHTML = `<div class="popular-tag"><i class="fas fa-crown"></i> POPULAR</div>`;
+                }
+                
+                packageCard.innerHTML += `
+                    <div class="package-header">
+                        <h3 class="package-name">${selectedService.name}</h3>
+                        <p class="package-type">Paket ${type.charAt(0).toUpperCase() + type.slice(1)}</p>
+                    </div>
+                    <div class="package-price">${pkg.price}</div>
+                    <div class="package-features">
+                        <div class="feature-list">
+                            ${pkg.features.map(feature => `
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>${feature}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="package-footer">
+                        <button class="btn btn-primary package-btn" data-type="${type}">
+                            <i class="fas fa-info-circle"></i> Detail Paket
+                        </button>
+                    </div>
+                `;
+                
+                packagesContainer.appendChild(packageCard);
+            });
+            
+            // Tambahkan event listener ke tombol package
+            document.querySelectorAll('.package-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const packageType = e.target.getAttribute('data-type');
+                    selectedPackage = {
+                        type: packageType,
+                        ...selectedService.packages[packageType]
+                    };
+                    renderPackageDetails();
+                    navigateTo('package-details');
+                });
+            });
+            initScrollAnimations(); // Inisialisasi animasi scroll untuk kartu baru
+        }
+
+        function renderPackageDetails() {
+            const detailsContainer = document.getElementById('package-details-content');
+            const pkg = selectedPackage;
+            const service = selectedService;
+            
+            detailsContainer.innerHTML = `
+                <div class="package-details-nav">
+                    <button class="btn btn-secondary btn-back" id="back-to-packages-from-details">
+                        <i class="fas fa-arrow-left"></i> Kembali
+                    </button>
+                </div>
+                <div class="package-details-header">
+                    <h2 class="package-details-title">
+                        <i class="${service.icon}"></i> 
+                        Paket ${pkg.type.charAt(0).toUpperCase() + pkg.type.slice(1)} - ${service.name}
+                    </h2>
+                    <div class="package-details-price">${pkg.price}</div>
+                    <p class="package-details-description">${service.description}</p>
+                </div>
+                
+                <div class="details-section">
+                    <h3><i class="fas fa-list-check"></i> Ringkasan Paket</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <i class="fas fa-file"></i>
+                            <div>
+                                <div class="detail-label">Jumlah Halaman</div>
+                                <div class="detail-value">${pkg.details.pages}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <div class="detail-label">Fitur Utama</div>
+                                <div class="detail-value">${pkg.details.features}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <div class="detail-label">Penyimpanan</div>
+                                <div class="detail-value">${pkg.details.storage}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <div class="detail-label">Dukungan Teknis</div>
+                                <div class="detail-value">${pkg.details.support}</div>
+                            </div>
+                        </div>
+                        ${pkg.details.duration ? `
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <div class="detail-label">Estimasi Pengerjaan</div>
+                                <div class="detail-value">${pkg.details.duration}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.products ? `
+                        <div class="detail-item">
+                            <i class="fas fa-boxes"></i>
+                            <div>
+                                <div class="detail-label">Jumlah Produk</div>
+                                <div class="detail-value">${pkg.details.products}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.payment ? `
+                        <div class="detail-item">
+                            <i class="fas fa-credit-card"></i>
+                            <div>
+                                <div class="detail-label">Metode Pembayaran</div>
+                                <div class="detail-value">${pkg.details.payment}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.analytics ? `
+                        <div class="detail-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <div class="detail-label">Analytics</div>
+                                <div class="detail-value">${pkg.details.analytics}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.mobile ? `
+                        <div class="detail-item">
+                            <i class="fas fa-mobile-screen"></i>
+                            <div>
+                                <div class="detail-label">Optimasi Mobile</div>
+                                <div class="detail-value">${pkg.details.mobile}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.students ? `
+                        <div class="detail-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <div>
+                                <div class="detail-label">Sistem Mahasiswa</div>
+                                <div class="detail-value">${pkg.details.students}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.faculty ? `
+                        <div class="detail-item">
+                            <i class="fas fa-chalkboard-user"></i>
+                            <div>
+                                <div class="detail-label">Sistem Dosen</div>
+                                <div class="detail-value">${pkg.details.faculty}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${pkg.details.blog ? `
+                        <div class="detail-item">
+                            <i class="fas fa-blog"></i>
+                            <div>
+                                <div class="detail-label">Sistem Blog</div>
+                                <div class="detail-value">${pkg.details.blog}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+                
+                <div class="package-details-footer">
+                    <button class="btn btn-primary btn-lg" id="proceed-to-form-btn">
+                        <i class="fas fa-file-alt"></i> Isi Form Pemesanan
+                    </button>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
+                        <i class="fas fa-info-circle"></i> Setelah mengisi form, Anda akan diarahkan untuk konfirmasi via WhatsApp.
+                    </p>
+                </div>
+            `;
+            
+            // Event listener untuk tombol "Isi Form Pemesanan"
+            document.getElementById('proceed-to-form-btn').addEventListener('click', () => {
+                navigateTo('order-form');
+            });
+
+            // Event listener untuk tombol "Kembali" dari detail paket ke pemilihan paket
+            document.getElementById('back-to-packages-from-details').addEventListener('click', () => {
+                navigateTo('package-selection');
+            });
+        }
+
+        function renderOrderConfirmation() {
+            const summaryContainer = document.getElementById('order-summary');
+            const customerName = document.getElementById('customer-name').value;
+            const customerEmail = document.getElementById('customer-email').value;
+            const customerPhone = document.getElementById('customer-phone').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+
+            summaryContainer.innerHTML = `
+                <h3><i class="fas fa-receipt"></i> Detail Pesanan Anda</h3>
+                <div class="summary-item">
+                    <span class="summary-label">Nomor Pesanan:</span>
+                    <span class="summary-value highlight">${orderId}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Jenis Layanan:</span>
+                    <span class="summary-value">${selectedService.name}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Paket:</span>
+                    <span class="summary-value highlight">${selectedPackage.type.charAt(0).toUpperCase() + selectedPackage.type.slice(1)}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Harga:</span>
+                    <span class="summary-value">${selectedPackage.price}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Metode Pembayaran:</span>
+                    <span class="summary-value">${paymentMethod}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Status Pembayaran:</span>
+                    <span class="summary-value">Menunggu Konfirmasi</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Tanggal Pesanan:</span>
+                    <span class="summary-value">${new Date().toLocaleString('id-ID', {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Nama Pembeli:</span>
+                    <span class="summary-value">${customerName}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Email Pembeli:</span>
+                    <span class="summary-value">${customerEmail}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Telepon Pembeli:</span>
+                    <span class="summary-value">${customerPhone}</span>
+                </div>
+            `;
+        }
+
+        function renderTestimonials() {
+            const testimonialWrapper = document.getElementById('testimonial-wrapper');
+            const sliderDots = document.getElementById('slider-dots');
+            testimonialWrapper.innerHTML = '';
+            sliderDots.innerHTML = '';
+
+            testimonialsData.forEach((testimonial, index) => {
+                const testimonialCard = document.createElement('div');
+                testimonialCard.className = 'testimonial-card';
+                testimonialCard.innerHTML = `
+                    <p class="testimonial-content">${testimonial.content}</p>
+                    <div class="testimonial-author">
+                        <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar">
+                        <div class="author-info">
+                            <h4>${testimonial.author}</h4>
+                            <p>${testimonial.role}</p>
+                        </div>
+                    </div>
+                `;
+                testimonialWrapper.appendChild(testimonialCard);
+            });
+
+            // Buat satu dot per kartu testimoni untuk navigasi langsung
+            testimonialsData.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.setAttribute('data-index', index);
+                dot.addEventListener('click', () => {
+                    currentTestimonialIndex = index;
+                    updateTestimonialSlider();
+                });
+                sliderDots.appendChild(dot);
+            });
+            updateTestimonialSlider();
+        }
+
+        function updateTestimonialSlider() {
+            const testimonialWrapper = document.getElementById('testimonial-wrapper');
+            const testimonialCards = testimonialWrapper.querySelectorAll('.testimonial-card');
+            const sliderDots = document.querySelectorAll('.dot');
+
+            if (testimonialCards.length === 0) return;
+
+            // Hapus kelas animasi dari semua kartu terlebih dahulu
+            testimonialCards.forEach(card => card.classList.remove('show-card'));
+
+            // Hitung lebar kartu termasuk celah (1.5rem = 24px)
+            // Menggunakan getComputedStyle untuk mendapatkan margin-right yang benar
+            const cardStyle = window.getComputedStyle(testimonialCards[0]);
+            const cardMarginRight = parseFloat(cardStyle.marginRight) || 0;
+            let cardWidth = testimonialCards[0].offsetWidth + cardMarginRight + 24; // Tambahkan 24px untuk gap
+
+            // Tentukan berapa banyak kartu yang bisa muat di tampilan
+            let visibleCards = 1;
+            if (window.innerWidth >= 1024) {
+                visibleCards = 3;
+            } else if (window.innerWidth >= 768) {
+                visibleCards = 2;
+            } else {
+                visibleCards = 1;
+            }
+
+            // Pastikan currentTestimonialIndex tidak melebihi kartu awal yang mungkin terakhir
+            const maxIndex = testimonialsData.length - visibleCards;
+            if (currentTestimonialIndex > maxIndex) {
+                currentTestimonialIndex = maxIndex;
+            }
+            if (currentTestimonialIndex < 0) {
+                currentTestimonialIndex = 0;
+            }
+            
+            const offset = -currentTestimonialIndex * cardWidth;
+            testimonialWrapper.style.transform = `translateX(${offset}px)`;
+
+            // Tambahkan kelas animasi ke kartu yang terlihat
+            for (let i = 0; i < visibleCards; i++) {
+                if (testimonialCards[currentTestimonialIndex + i]) {
+                    testimonialCards[currentTestimonialIndex + i].classList.add('show-card');
+                }
+            }
+
+            // Perbarui dots - setiap dot mewakili 'halaman' atau pergeseran satu kartu
+            sliderDots.forEach((dot, index) => {
+                if (index === currentTestimonialIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // FUNGSI PROSES ORDER
+        // ============================================
+        function processOrderWhatsApp() {
+            const customerName = document.getElementById('customer-name').value;
+            const customerEmail = document.getElementById('customer-email').value;
+            const customerPhone = document.getElementById('customer-phone').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const customerNotes = document.getElementById('customer-notes').value;
+
+            if (!customerName || !customerEmail || !customerPhone || !paymentMethod) {
+                showNotification('Mohon lengkapi semua data yang wajib diisi!', 3000);
+                return;
+            }
+
+            orderId = generateOrderId(); // Buat ID pesanan di sini
+
+            const message = `Halo, saya ingin memesan paket website.\n\n` +
+                            `*Detail Pemesanan:*\n` +
+                            `Nomor Pesanan: *${orderId}*\n` +
+                            `Jenis Layanan: *${selectedService.name}*\n` +
+                            `Paket: *${selectedPackage.type.charAt(0).toUpperCase() + selectedPackage.type.slice(1)}*\n` +
+                            `Harga: *${selectedPackage.price}*\n` +
+                            `Metode Pembayaran: *${paymentMethod}*\n\n` +
+                            `*Data Pembeli:*\n` +
+                            `Nama: ${customerName}\n` +
+                            `Email: ${customerEmail}\n` +
+                            `Telepon: ${customerPhone}\n` +
+                            `Catatan: ${customerNotes || '-'}\n\n` +
+                            `Mohon konfirmasi pesanan saya. Terima kasih!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${whatsappPhoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+
+            showNotification('Mengalihkan ke WhatsApp untuk konfirmasi pesanan...', 5000);
+            setTimeout(() => {
+                renderOrderConfirmation();
+                navigateTo('order-confirmation');
+            }, 1000);
+        }
+
+        // ============================================
+        // SCROLL ANIMATIONS
+        // ============================================
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target); // Berhenti mengamati setelah dianimasikan
+                    }
+                });
+            }, {
+                threshold: 0.1 // Pemicu saat 10% elemen terlihat
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // ============================================
+        // INISIALISASI APLIKASI
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Perbarui informasi kontak di footer
+            const instagramLink = document.querySelector('.footer-column .social-links a[href*="instagram.com"]');
+            if (instagramLink) {
+                instagramLink.href = `https://instagram.com/${instagramUsername}`;
+            }
+
+            const whatsappLink = document.querySelector('.footer-column .social-links a[href*="whatsapp.com"]');
+            if (whatsappLink) {
+                whatsappLink.href = `https://wa.me/${whatsappPhoneNumber}`;
+            }
+            
+            // Tambahkan TikTok jika belum ada, atau perbarui jika sudah ada
+            let tiktokLink = document.querySelector('.footer-column .social-links a[href*="tiktok.com"]');
+            if (!tiktokLink) {
+                tiktokLink = document.createElement('a');
+                tiktokLink.href = `https://www.tiktok.com/@${tiktokUsername}`;
+                tiktokLink.target = '_blank';
+                tiktokLink.innerHTML = '<i class="fab fa-tiktok"></i>';
+                document.querySelector('.footer-column .social-links').appendChild(tiktokLink);
+            } else {
+                tiktokLink.href = `https://www.tiktok.com/@${tiktokUsername}`;
+            }
+            // Hapus ikon Twitter dan Facebook
+            const twitterLink = document.querySelector('.footer-column .social-links a[href*="twitter.com"]');
+            if (twitterLink) twitterLink.remove();
+            const facebookLink = document.querySelector('.footer-column .social-links a[href*="facebook.com"]');
+            if (facebookLink) facebookLink.remove();
+            
+            const phoneLink = document.querySelector('.footer-column .footer-links a[href*="tel:"]');
+            if (phoneLink) {
+                phoneLink.href = `tel:+${whatsappPhoneNumber}`;
+            }
+
+            const emailLink = document.querySelector('.footer-column .footer-links a[href*="mailto:"]');
+            if (emailLink) {
+                emailLink.href = `mailto:${companyEmail}`;
+            }
+
+            const addressLink = document.querySelector('.footer-column .footer-links a[href*="map-marker-alt"]');
+            if (addressLink) {
+                addressLink.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${companyAddress}`;
+            }
+
+
+            // Render dropdown jenis website
+            renderWebsiteTypesDropdown();
+            renderTestimonials(); // Render testimoni untuk slider
+
+            // Setup tombol kembali ke beranda
+            document.getElementById('back-to-home').addEventListener('click', (e) => {
+                e.preventDefault();
+                navigateTo('landing');
+            });
+
+            // Event listener untuk tombol kembali dari halaman pemilihan paket ke landing
+            document.getElementById('back-to-landing-from-packages').addEventListener('click', (e) => {
+                e.preventDefault();
+                navigateTo('landing');
+            });
+
+            // Event listener untuk tombol navigasi slider testimoni
+            document.getElementById('prev-testimonial').addEventListener('click', () => {
+                const visibleCards = (window.innerWidth >= 1024) ? 3 : (window.innerWidth >= 768) ? 2 : 1;
+                currentTestimonialIndex = Math.max(0, currentTestimonialIndex - 1); // Geser satu kartu
+                updateTestimonialSlider();
+            });
+
+            document.getElementById('next-testimonial').addEventListener('click', () => {
+                const visibleCards = (window.innerWidth >= 1024) ? 3 : (window.innerWidth >= 768) ? 2 : 1;
+                const maxIndex = testimonialsData.length - visibleCards; // Sesuaikan maxIndex berdasarkan visibleCards
+                currentTestimonialIndex = Math.min(maxIndex, currentTestimonialIndex + 1);
+                updateTestimonialSlider();
+            });
+
+            // Event listener untuk window resize untuk memperbarui slider
+            window.addEventListener('resize', () => {
+                updateTestimonialSlider();
+            });
+
+            // Event listener untuk form pemesanan
+            document.getElementById('order-details-form').addEventListener('submit', (e) => {
+                e.preventDefault(); // Mencegah submit form default
+                processOrderWhatsApp();
+            });
+
+            // Event listener untuk tombol kembali dari form ke detail paket
+            document.getElementById('back-to-details').addEventListener('click', (e) => {
+                e.preventDefault();
+                navigateTo('package-details');
+            });
+            
+            // Mulai dengan halaman landing
+            navigateTo('landing');
+            initScrollAnimations(); // Inisialisasi animasi scroll saat pemuatan awal
+        });
+    </script>
+</body>
+</html>
