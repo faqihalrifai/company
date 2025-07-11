@@ -202,7 +202,7 @@
         
         /* ===== HERO SECTION ===== */
         .hero {
-            background: url('https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            background: url('https://plus.unsplash.com/premium_photo-1676150789916-2c7d1fdda6b9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkzfHxjb2Rpbmd8ZW58MHx8MHx8fDA%3D') no-repeat center center/cover;
             color: white;
             padding: 8rem 0; /* Adjusted padding to control height */
             position: relative;
@@ -283,10 +283,6 @@
             margin-bottom: 1rem;
             color: var(--gray);
             font-size: 0.9rem;
-        }
-        
-        .web-type-hint i {
-            /* No animation for chevron-down, it's a static indicator */
         }
         
         .web-type-cards-container {
@@ -885,25 +881,27 @@
             margin-bottom: 1.5rem; /* Reduced margin */
         }
 
-        .screenshot-instruction {
-            background-color: #e0f7fa; /* Light cyan background */
-            color: #00796b; /* Darker cyan text */
-            padding: 0.75rem 1rem; /* Reduced padding */
+        /* Removed .screenshot-instruction */
+
+        .payment-instruction {
+            background-color: #fff3e0; /* Light orange background */
+            color: #e65100; /* Darker orange text */
+            padding: 0.75rem 1rem;
             border-radius: var(--rounded-md);
-            margin-bottom: 1.5rem; /* Reduced margin */
-            font-size: 0.9rem; /* Reduced font size */
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.5rem; /* Reduced gap */
+            gap: 0.5rem;
             box-shadow: var(--shadow-sm);
-            border: 1px solid #b2ebf2; /* Light border */
-            text-align: left; /* Ensure text is left-aligned */
+            border: 1px solid #ffcc80;
+            text-align: left;
         }
-        
-        .screenshot-instruction i {
-            font-size: 1.25rem; /* Reduced icon size */
-            color: #0097a7; /* Even darker cyan icon */
+
+        .payment-instruction i {
+            font-size: 1.25rem;
+            color: #ff9800;
         }
         
         .order-summary {
@@ -1234,7 +1232,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Jasa Pembuatan Website Profesional</h1>
                 <p class="hero-subtitle">Kami membantu bisnis Anda tumbuh dengan website berkualitas tinggi, desain menarik, dan performa optimal. Solusi lengkap untuk kebutuhan digital Anda.</p>
-                <img src="https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2ViJTIwZGV2fGVufDB8fDB8fHww" alt="Website Development" class="hero-image">
+                <img src="https://images.unsplash.com/photo-1597239450996-ea7c2c564412?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxjb2Rpbmd8ZW58MHx8MHx8fDA%3D" alt="Website Development" class="hero-image">
             </div>
         </div>
     </section>
@@ -1292,26 +1290,17 @@
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Layanan</h3>
-                    <div class="footer-links">
-                        <a href="#"><i class="fas fa-chevron-right"></i> Pembuatan Website</a>
-                        <a href="#"><i class="fas fa-chevron-right"></i> Desain UI/UX</a>
-                        <a href="#"><i class="fas fa-chevron-right"></i> SEO Optimization</a>
-                        <a href="#"><i class="fas fa-chevron-right"></i> Maintenance</a>
-                    </div>
-                </div>
-                <div class="footer-column">
                     <h3>Kontak</h3>
                     <div class="footer-links">
                         <a href="https://maps.app.goo.gl/your-location-link" target="_blank"><i class="fas fa-map-marker-alt"></i> Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman Suci Blok C3 No 1</a>
                         <a href="tel:+62859148219009"><i class="fas fa-phone"></i> +62 859 1482 19009</a>
                         <a href="mailto:faqihalrf@gmail.com"><i class="fas fa-envelope"></i> faqihalrf@gmail.com</a>
-                        <a href="#"><i class="fas fa-clock"></i> Senin-Jumat: 9:00 - 17:00</a>
+                        <a href="#"><i class="fas fa-clock"></i> Senin-Sabtu: 9:00 - 17:00</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Jasa Pembuatan Website Profesional. Semua Hak Dilindungi.</p>
+                <p>&copy; 2025 Mydsign. Semua Hak Dilindungi.</p>
             </div>
         </div>
     </footer>
@@ -1357,10 +1346,7 @@
         <div class="container">
             <div class="order-form-section">
                 <h2 class="section-title">Lengkapi Detail Pemesanan</h2>
-                <div class="notification-message" style="background-color: var(--warning); color: var(--dark); padding: 1rem; border-radius: var(--rounded-md); margin-bottom: 1.5rem; text-align: left; box-shadow: var(--shadow-sm);">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>*Penting*: Setelah klik "Konfirmasi via WhatsApp", Anda akan diarahkan ke WhatsApp untuk mengirim detail pesanan. Setelah terkirim, mohon kembali ke halaman ini untuk melihat Nomor Pesanan Anda.</span>
-                </div>
+                <!-- Removed: Notification message about WhatsApp confirmation -->
                 <form id="order-details-form">
                     <div class="form-group">
                         <label for="customer-name">Nama Lengkap:</label>
@@ -1411,10 +1397,12 @@
                 <h1 class="confirmation-title">Terima Kasih! Pesanan Anda Telah Diterima.</h1>
                 <p class="confirmation-subtitle">Kami akan segera memproses pesanan Anda dan menghubungi Anda dalam waktu 1x24 jam.</p>
                 
-                <!-- New instruction for screenshot -->
-                <div class="screenshot-instruction">
-                    <i class="fas fa-camera"></i>
-                    <span>Mohon *screenshot* halaman ini sebagai bukti pesanan Anda untuk memudahkan proses konfirmasi dengan penjual.</span>
+                <!-- Removed: New instruction for screenshot -->
+
+                <!-- New instruction for down payment -->
+                <div class="payment-instruction">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <span>Untuk memulai pengerjaan, mohon lakukan *pembayaran awal sebesar 25%* dari total harga. Detail pembayaran akan kami informasikan via WhatsApp setelah konfirmasi pesanan.</span>
                 </div>
 
                 <div class="order-summary" id="order-summary">
@@ -1530,12 +1518,12 @@
                             'Integrasi Media Sosial & Chat',
                             'SEO Lengkap + Konten Optimasi',
                             'Analytics & Heatmap Integration',
-                            'A/B Testing Dasar',
+                            'Testing Dasar',
                             'Dukungan 6 Bulan'
                         ],
                         details: {
                             pages: '1 Halaman Utama + 3 Sub Halaman',
-                            features: 'Desain Premium & Interaktif, Form Kontak + Sistem CRM Dasar, Integrasi Media Sosial & Live Chat, SEO Lengkap + Konten Optimasi, Analytics & Heatmap Integration, A/B Testing Dasar',
+                            features: 'Desain Premium & Interaktif, Form Kontak + Sistem CRM Dasar, Integrasi Media Sosial & Live Chat, SEO Lengkap + Konten Optimasi, Analytics & Heatmap Integration, Testing Dasar',
                             storage: '5 GB',
                             hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
@@ -1779,7 +1767,8 @@
                             'Integrasi Sistem Kampus',
                             'Portal Mahasiswa & Dosen Interaktif',
                             'E-learning Lanjutan',
-                            'Dukungan Prioritas'
+                            'Dukungan Prioritas',
+                            'Konsultasi Bisnis'
                         ],
                         details: {
                             pages: 'Sesuai Kebutuhan',
@@ -2489,7 +2478,8 @@
         const paymentMethodIcons = {
             'Dana': 'fas fa-wallet',
             'OVO': 'fas fa-mobile-alt',
-            'QRIS': 'fas fa-qrcode',
+            'QRIS': 'fas fa-qrcode'
+            // Removed 'Transfer Bank'
         };
 
         // Function to generate star icons based on rating
@@ -2852,7 +2842,7 @@
                 </div>
                 <div class="summary-item">
                     <span class="summary-label">Status Pembayaran:</span>
-                    <span class="summary-value">Menunggu Konfirmasi</span>
+                    <span class="summary-value">Menunggu Pembayaran Awal</span>
                 </div>
                 <div class="summary-item">
                     <span class="summary-label">Tanggal Pesanan:</span>
@@ -2972,7 +2962,7 @@
             const customerNotes = document.getElementById('customer-notes').value;
 
             if (!customerName || !customerEmail || !customerPhone || !paymentMethod) {
-                showNotification('Mohon lengkapi semua data yang wajib diisi!', 3000);
+                showNotification('Mohon lengkapi semua data yang wajib diisi!', 2000);
                 return;
             }
 
@@ -2985,6 +2975,8 @@
                             `Paket: *${selectedPackage.type.charAt(0).toUpperCase() + selectedPackage.type.slice(1)}*\n` +
                             `Harga: *${selectedPackage.price}*\n` +
                             `Metode Pembayaran: *${paymentMethod}*\n\n` +
+                            `*Informasi Pembayaran Awal:*\n` +
+                            `Untuk memulai pengerjaan, mohon lakukan pembayaran awal sebesar 25% dari total harga. Detail pembayaran akan kami informasikan setelah konfirmasi pesanan ini.\n\n` +
                             `*Data Pembeli:*\n` +
                             `Nama: ${customerName}\n` +
                             `Email: ${customerEmail}\n` +
