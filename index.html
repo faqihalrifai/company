@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jasa Pembuatan Website Profesional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts - Poppins untuk tampilan yang lebih modern -->
+    <!-- Google Fonts - Poppins for a more modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== GLOBAL STYLES ===== */
         :root {
-            /* Warna primer yang lebih kalem dan profesional */
-            --primary: #5a67d8; /* Biru keunguan yang lebih lembut */
-            --secondary: #667eea; /* Biru medium */
-            --accent: #4299e1; /* Biru terang */
+            /* Calmer and more professional primary colors */
+            --primary: #5a67d8; /* Softer purple-blue */
+            --secondary: #667eea; /* Medium blue */
+            --accent: #4299e1; /* Light blue */
             --danger: #f72585;
             --success: #4cc9f0;
             --warning: #f8961e;
@@ -262,20 +262,20 @@
             100% { transform: translateY(0); }
         }
         
-        /* ===== DROPDOWN SECTION ===== */
-        .dropdown-section {
+        /* ===== WEB TYPE SELECTION SECTION (Previously Dropdown Section) ===== */
+        .web-type-selection {
             background-color: white;
             padding: 2rem;
             border-radius: var(--rounded-xl);
             box-shadow: var(--shadow-md);
-            max-width: 800px;
+            max-width: 900px; /* Increased max-width for cards */
             margin: -3rem auto 0;
             position: relative;
             z-index: 2;
             text-align: center;
         }
         
-        .dropdown-hint {
+        .web-type-hint {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -285,95 +285,64 @@
             font-size: 0.9rem;
         }
         
-        .dropdown-hint i {
-            animation: bounce 2s infinite;
+        .web-type-hint i {
+            /* No animation for chevron-down, it's a static indicator */
         }
         
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-btn {
-            background-color: var(--accent);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease; /* Smooth transition */
-        }
-        
-        .dropdown-btn:hover {
-            background-color: #3a86ff;
-            box-shadow: var(--shadow-lg); /* Stronger shadow on hover */
-            transform: scale(1.02); /* Slight scale on hover */
+        .web-type-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for cards */
+            gap: 1.5rem; /* Space between cards */
+            margin-top: 1.5rem;
         }
 
-        .dropdown-btn:active {
-            animation: pulseButton 0.3s ease-out; /* Pulse on click */
-        }
-
-        @keyframes pulseButton {
-            0% { transform: scale(1); box-shadow: var(--shadow-md); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(72, 149, 239, 0.4); }
-            100% { transform: scale(1); box-shadow: var(--shadow-md); }
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 300px;
-            box-shadow: var(--shadow-xl);
-            z-index: 10;
-            border-radius: var(--rounded-md);
-            overflow: hidden;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fadeIn 0.3s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-        
-        .dropdown-content a {
-            color: var(--dark);
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: var(--transition);
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-        
-        .dropdown-content a:hover {
+        .web-type-card {
             background-color: var(--light);
-            color: var(--primary);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--rounded-lg);
+            padding: 1.5rem;
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute content vertically */
+            align-items: flex-start;
         }
-        
-        .dropdown-content a i {
-            width: 1.5rem;
-            text-align: center;
-            color: var(--primary);
+
+        .web-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
+
+        .web-type-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .web-type-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .web-type-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem; /* Add margin below paragraph */
+        }
+
+        .web-type-card .btn {
+            width: auto; /* Allow button to size naturally */
+            align-self: flex-end; /* Align button to the right within the card */
+            margin-top: auto; /* Push button to the bottom */
+        }
+
+        .web-type-card .btn-mini { /* New style for mini button */
+            padding: 0.5rem 1rem; /* Smaller padding */
+            font-size: 0.85rem; /* Smaller font size */
         }
         
         /* ===== PACKAGE SECTION ===== */
@@ -634,7 +603,6 @@
             max-width: 1000px; /* Adjusted max-width for slider container */
             margin: 0 auto;
             overflow: hidden;
-            /* Removed padding-bottom for dots */
         }
 
         .testimonial-wrapper {
@@ -744,7 +712,7 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
-            color: #f8961e; /* Warna bintang */
+            color: #f8961e; /* Star color */
             font-size: 1rem;
             margin-bottom: 0.5rem;
             position: relative; /* Ensure rating is positioned correctly */
@@ -792,8 +760,6 @@
                 display: none;
             }
         }
-
-        /* Removed .slider-dots and .dot styles */
         
         /* ===== ORDER FORM SECTION ===== */
         .order-form-section {
@@ -888,16 +854,16 @@
             background: white;
             border-radius: var(--rounded-xl);
             box-shadow: var(--shadow-md);
-            padding: 3rem;
-            max-width: 800px;
+            padding: 2rem; /* Reduced padding */
+            max-width: 600px; /* Reduced max-width */
             margin: 0 auto;
             text-align: center;
         }
         
         .confirmation-icon {
-            font-size: 5rem;
+            font-size: 4rem; /* Reduced icon size */
             color: var(--success);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* Reduced margin */
             animation: bounceIn 0.5s;
         }
         
@@ -909,49 +875,49 @@
         
         .confirmation-title {
             color: var(--success);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2rem; /* Reduced font size */
+            margin-bottom: 0.75rem; /* Reduced margin */
         }
         
         .confirmation-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem; /* Reduced font size */
             color: var(--gray);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem; /* Reduced margin */
         }
 
         .screenshot-instruction {
             background-color: #e0f7fa; /* Light cyan background */
             color: #00796b; /* Darker cyan text */
-            padding: 1rem 1.5rem;
+            padding: 0.75rem 1rem; /* Reduced padding */
             border-radius: var(--rounded-md);
-            margin-bottom: 2rem;
-            font-size: 1rem;
+            margin-bottom: 1.5rem; /* Reduced margin */
+            font-size: 0.9rem; /* Reduced font size */
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem; /* Reduced gap */
             box-shadow: var(--shadow-sm);
             border: 1px solid #b2ebf2; /* Light border */
             text-align: left; /* Ensure text is left-aligned */
         }
         
         .screenshot-instruction i {
-            font-size: 1.5rem;
+            font-size: 1.25rem; /* Reduced icon size */
             color: #0097a7; /* Even darker cyan icon */
         }
         
         .order-summary {
             background-color: var(--light);
             border-radius: var(--rounded-lg);
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 1.5rem; /* Reduced padding */
+            margin: 1.5rem 0; /* Reduced margin */
             text-align: left;
         }
         
         .order-summary h3 {
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem; /* Reduced margin */
+            font-size: 1.25rem; /* Reduced font size */
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -964,10 +930,11 @@
         .summary-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem; /* Reduced margin */
+            padding-bottom: 0.5rem; /* Reduced padding */
             border-bottom: 1px dashed var(--light-gray);
             flex-wrap: wrap; /* Allow wrapping for long content */
+            font-size: 0.9rem; /* Reduced font size */
         }
         
         .summary-item:last-child {
@@ -1193,29 +1160,26 @@
                 font-size: 1.75rem;
             }
             
-            .dropdown-content {
-                min-width: 250px;
-            }
-            
-            .package-details-title {
-                font-size: 1.75rem;
-            }
-            
-            .package-details-price {
-                font-size: 2rem;
+            .web-type-selection {
+                padding: 1.5rem;
             }
             
             .confirmation-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
-            .testimonial-card {
-                padding: 1.5rem;
+            .order-form-section {
+                padding: 2rem 1.5rem;
             }
 
-            /* .slider-nav button {
-                padding: 0.5rem 0.75rem;
-            } */ /* Handled by display: none for mobile/tablet */
+            .form-actions {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
 
             .package-selection-header {
                 flex-direction: column; /* Stack items vertically */
@@ -1249,34 +1213,12 @@
                 padding: 3rem 0;
             }
             
-            .dropdown-section {
-                padding: 1.5rem;
-            }
-            
-            .dropdown-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
             .confirmation-container {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1rem;
             }
             
             .confirmation-title {
-                font-size: 1.75rem;
-            }
-
-            .order-form-section {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-actions {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .form-actions .btn {
-                width: 100%;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -1292,29 +1234,23 @@
             <div class="hero-content">
                 <h1 class="hero-title">Jasa Pembuatan Website Profesional</h1>
                 <p class="hero-subtitle">Kami membantu bisnis Anda tumbuh dengan website berkualitas tinggi, desain menarik, dan performa optimal. Solusi lengkap untuk kebutuhan digital Anda.</p>
-                <img src="https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2ViJTIwZGV2fGVufDB8fDB8fHww" alt="Pembuatan Website" class="hero-image">
+                <img src="https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2ViJTIwZGV2fGVufDB8fDB8fHww" alt="Website Development" class="hero-image">
             </div>
         </div>
     </section>
 
     <!-- 
         ============================================
-        DROPDOWN SECTION
+        WEB TYPE SELECTION SECTION (Previously Dropdown Section)
         ============================================ 
     -->
-    <div class="dropdown-section scroll-animate" id="dropdown-section">
-        <div class="dropdown-hint">
-            <i class="fas fa-hand-pointer"></i>
-            <span>Klik tombol di bawah untuk menemukan solusi website yang Anda butuhkan</span>
+    <div class="web-type-selection scroll-animate" id="web-type-selection">
+        <div class="web-type-hint">
+            <i class="fas fa-chevron-down"></i> <!-- Changed icon to chevron-down -->
+            <span>Pilih jenis website yang Anda butuhkan</span>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-btn">
-                <i class="fas fa-search"></i>
-                Tentukan Kebutuhan Anda
-            </button>
-            <div class="dropdown-content" id="website-types">
-                <!-- Dropdown items akan diisi oleh JavaScript -->
-            </div>
+        <div class="web-type-cards-container" id="website-types-container">
+            <!-- Web type cards will be populated by JavaScript -->
         </div>
     </div>
 
@@ -1328,13 +1264,12 @@
             <h2 class="section-title">Apa Kata Klien Kami?</h2>
             <div class="testimonial-slider">
                 <div class="testimonial-wrapper" id="testimonial-wrapper">
-                    <!-- Testimonial cards akan diisi oleh JavaScript -->
+                    <!-- Testimonial cards will be populated by JavaScript -->
                 </div>
                 <div class="slider-nav">
                     <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
                     <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                <!-- Removed the slider-dots div -->
             </div>
         </div>
     </section>
@@ -1395,7 +1330,7 @@
                 <h2 class="section-title" id="package-title" style="flex-grow: 1; margin-bottom: 0;">Pilih Paket yang Tepat untuk Anda</h2>
             </div>
             <div class="packages-container" id="packages-container">
-                <!-- Package cards akan diisi oleh JavaScript -->
+                <!-- Package cards will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -1408,7 +1343,7 @@
     <section class="section" id="package-details" style="display: none;">
         <div class="container">
             <div class="package-details" id="package-details-content">
-                <!-- Package details akan diisi oleh JavaScript -->
+                <!-- Package details will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -1483,7 +1418,7 @@
                 </div>
 
                 <div class="order-summary" id="order-summary">
-                    <!-- Order summary akan diisi oleh JavaScript -->
+                    <!-- Order summary will be populated by JavaScript -->
                 </div>
                 <a href="#" class="btn btn-primary btn-lg" id="back-to-home">
                     <i class="fas fa-home"></i>
@@ -1514,7 +1449,7 @@
 
     <script>
         // ============================================
-        // DATA LAYANAN DAN PAKET
+        // SERVICE AND PACKAGE DATA
         // ============================================
         const services = [
             {
@@ -1534,8 +1469,8 @@
                         details: {
                             pages: '1 Halaman Utama',
                             features: 'Desain Responsif, Form Kontak Sederhana',
-                            storage: '200 MB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '200 MB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '5 Hari Kerja',
                             analytics: 'Tidak Termasuk',
@@ -1555,8 +1490,8 @@
                         details: {
                             pages: '1 Halaman Utama',
                             features: 'Desain Responsif, Form Kontak, Integrasi Media Sosial, Optimasi Dasar SEO',
-                            storage: '1 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '1 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '7 Hari Kerja',
                             analytics: 'Integrasi Google Analytics Dasar',
@@ -1577,8 +1512,8 @@
                         details: {
                             pages: '1 Halaman Utama + 1 Sub Halaman',
                             features: 'Desain Custom Responsif, Form Kontak dengan Auto-responder, Integrasi Media Sosial Lengkap, SEO On-Page Lengkap, Analytics Integration',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '10 Hari Kerja',
                             analytics: 'Google Analytics & Tag Manager',
@@ -1601,8 +1536,8 @@
                         details: {
                             pages: '1 Halaman Utama + 3 Sub Halaman',
                             features: 'Desain Premium & Interaktif, Form Kontak + Sistem CRM Dasar, Integrasi Media Sosial & Live Chat, SEO Lengkap + Konten Optimasi, Analytics & Heatmap Integration, A/B Testing Dasar',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
                             duration: '14 Hari Kerja',
                             analytics: 'Google Analytics, Tag Manager & Hotjar',
@@ -1622,7 +1557,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan',
                             analytics: 'Disesuaikan',
@@ -1643,17 +1578,17 @@
                             'Hingga 10 Produk',
                             'Desain Toko Responsif',
                             'Sistem Keranjang Belanja Dasar',
-                            'Pembayaran via Dana, OVO & QRIS', // Updated payment method
+                            'Pembayaran via Dana, OVO & QRIS',
                             'Dukungan 1 Minggu'
                         ],
                         details: {
                             pages: 'Halaman Produk, Keranjang, Checkout',
                             features: 'Desain Responsif, Keranjang Belanja Dasar',
-                            storage: '1 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '1 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '10 Hari Kerja',
-                            payment: 'Dana, OVO & QRIS', // Updated payment method
+                            payment: 'Dana, OVO & QRIS',
                             products: 'Hingga 10 Produk'
                         }
                     },
@@ -1663,18 +1598,18 @@
                             'Hingga 50 Produk',
                             'Desain Toko Responsif',
                             'Sistem Keranjang Belanja',
-                            'Pembayaran via Dana, OVO & QRIS', // Updated payment method
+                            'Pembayaran via Dana, OVO & QRIS',
                             'Manajemen Produk Dasar',
                             'Dukungan 1 Bulan'
                         ],
                         details: {
                             pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout',
                             features: 'Desain Responsif, Sistem Keranjang Belanja, Manajemen Produk Dasar',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '18 Hari Kerja',
-                            payment: 'Dana, OVO & QRIS', // Updated payment method
+                            payment: 'Dana, OVO & QRIS',
                             products: 'Hingga 50 Produk'
                         }
                     },
@@ -1684,7 +1619,7 @@
                             'Hingga 200 Produk',
                             'Desain Toko Custom',
                             'Sistem Keranjang Belanja',
-                            'Pembayaran via Dana, OVO, QRIS & COD', // Updated payment method
+                            'Pembayaran via Dana, OVO, QRIS & COD',
                             'Manajemen Stok & Kategori',
                             'Sistem Diskon Dasar',
                             'Dukungan 3 Bulan'
@@ -1692,11 +1627,11 @@
                         details: {
                             pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout, Akun Pelanggan',
                             features: 'Desain Custom Responsif, Sistem Keranjang Belanja, Manajemen Stok & Kategori, Sistem Diskon Dasar',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '25 Hari Kerja',
-                            payment: 'Dana, OVO, QRIS & COD', // Updated payment method
+                            payment: 'Dana, OVO, QRIS & COD',
                             products: 'Hingga 200 Produk'
                         }
                     },
@@ -1707,7 +1642,7 @@
                             'Produk Tidak Terbatas',
                             'Desain Premium & Unik',
                             'Sistem Keranjang Belanja Lengkap',
-                            'Pembayaran via Dana, OVO, QRIS, COD & Payment Gateway (Midtrans)', // Updated payment method
+                            'Pembayaran via Dana, OVO, QRIS, COD & Payment Gateway (Midtrans)',
                             'Manajemen Stok Lengkap',
                             'Sistem Diskon & Promo',
                             'Laporan Penjualan',
@@ -1717,11 +1652,11 @@
                         details: {
                             pages: 'Halaman Utama, Katalog Produk, Halaman Produk, Keranjang, Checkout, Akun Pelanggan, Halaman Admin, Laporan',
                             features: 'Desain Premium & Unik, Sistem Keranjang Belanja Lengkap, Manajemen Stok Lengkap, Sistem Diskon & Promo, Laporan Penjualan, Integrasi dengan Marketplace',
-                            storage: '20 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '20 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
                             duration: '40 Hari Kerja',
-                            payment: 'Dana, OVO, QRIS, COD & Payment Gateway (Midtrans)', // Updated payment method
+                            payment: 'Dana, OVO, QRIS, COD & Payment Gateway (Midtrans)',
                             products: 'Produk Tidak Terbatas'
                         }
                     },
@@ -1738,7 +1673,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan',
                             payment: 'Disesuaikan',
@@ -1764,8 +1699,8 @@
                         details: {
                             pages: 'Halaman Utama, Profil, Program Studi, Kontak',
                             features: 'Desain Responsif, Informasi Statis',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '15 Hari Kerja',
                             students: 'Informasi Statis',
@@ -1785,8 +1720,8 @@
                         details: {
                             pages: 'Halaman Utama, Profil, Program Studi, Berita, Pengumuman, Galeri, Kontak',
                             features: 'Desain Responsif, Sistem Berita & Pengumuman, Galeri Foto & Video, Form Kontak',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '25 Hari Kerja',
                             students: 'Informasi Statis (Tidak Terintegrasi)',
@@ -1806,8 +1741,8 @@
                         details: {
                             pages: 'Semua halaman Basic + Penerimaan Mahasiswa Baru, Kalender Akademik, Portal Dosen, FAQ',
                             features: 'Semua fitur Basic + Sistem Penerimaan Mahasiswa Baru Online, Kalender Akademik Interaktif, Integrasi dengan Media Sosial, Portal Informasi Dosen',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '40 Hari Kerja',
                             students: 'Formulir Pendaftaran Online',
@@ -1829,8 +1764,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Portal Mahasiswa, Portal Dosen, E-learning, Administrasi',
                             features: 'Semua fitur Standard + Sistem Informasi Akademik (SIA), Portal Mahasiswa & Dosen, E-learning Dasar, Integrasi dengan Sistem Kampus, Laporan Administrasi',
-                            storage: '50 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '50 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
                             duration: '75 Hari Kerja',
                             students: 'Portal Mahasiswa Lengkap',
@@ -1850,7 +1785,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan',
                             students: 'Disesuaikan',
@@ -1876,8 +1811,8 @@
                         details: {
                             pages: 'Halaman Utama, Profil, Galeri Karya, Kontak',
                             features: 'Desain Minimalis, Galeri Sederhana, Form Kontak',
-                            storage: '200 MB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '200 MB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '5 Hari Kerja',
                             projects: 'Hingga 5 Item Karya',
@@ -1896,8 +1831,8 @@
                         details: {
                             pages: 'Halaman Utama, Profil, Galeri Karya, Kontak',
                             features: 'Desain Minimalis, Galeri Karya Sederhana, Form Kontak',
-                            storage: '1 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '1 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '7 Hari Kerja',
                             projects: 'Hingga 10 Item Karya',
@@ -1917,8 +1852,8 @@
                         details: {
                             pages: 'Halaman Utama, Profil, Galeri Karya dengan Kategori, Blog, Kontak',
                             features: 'Desain Custom Menarik, Galeri Karya dengan Kategori, Blog Pribadi Dasar, Integrasi Media Sosial',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '10 Hari Kerja',
                             projects: 'Hingga 30 Item Karya dengan Kategori',
@@ -1941,32 +1876,12 @@
                         details: {
                             pages: 'Halaman Utama Interaktif, Profil, Galeri Karya dengan Filter, Blog, Testimonial, Kontak',
                             features: 'Desain Premium & Unik, Galeri Karya dengan Filter Advanced, Blog Pribadi Lengkap, Integrasi Media Sosial & Testimonial, SEO Optimasi, Analytics Integration',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas via Email, WhatsApp & Telepon',
                             duration: '14 Hari Kerja',
                             projects: 'Item Karya Tidak Terbatas dengan Filter',
                             blog: 'Blog Lengkap dengan Kategori'
-                        }
-                    },
-                    custom: {
-                        price: 'Harga Custom',
-                        features: [
-                            'Desain Portofolio Unik',
-                            'Integrasi Fitur Khusus',
-                            'Optimasi Branding',
-                            'Dukungan Prioritas',
-                            'Konsultasi Kreatif'
-                        ],
-                        details: {
-                            pages: 'Sesuai Kebutuhan',
-                            features: 'Disesuaikan',
-                            storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
-                            support: 'Disesuaikan',
-                            duration: 'Disesuaikan',
-                            projects: 'Disesuaikan',
-                            blog: 'Disesuaikan'
                         }
                     }
                 }
@@ -1988,8 +1903,8 @@
                         details: {
                             pages: 'Beranda, Tentang Kami, Kontak',
                             features: 'Desain Responsif, Profil Perusahaan Dasar, Form Kontak',
-                            storage: '1 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '1 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '7 Hari Kerja'
                         }
@@ -2007,8 +1922,8 @@
                         details: {
                             pages: 'Beranda, Tentang Kami, Layanan/Produk, Galeri, Kontak',
                             features: 'Desain Responsif, Profil Perusahaan, Galeri, Form Kontak',
-                            storage: '3 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '3 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '14 Hari Kerja'
                         }
@@ -2026,8 +1941,8 @@
                         details: {
                             pages: 'Semua halaman Basic + Tim, Blog, FAQ, Testimonial',
                             features: 'Semua fitur Basic + Tim & Struktur Organisasi, Blog Perusahaan, Integrasi Media Sosial',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '20 Hari Kerja'
                         }
@@ -2047,8 +1962,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Karir, Klien, Multilingual, CMS Lengkap',
                             features: 'Semua fitur Standard + Sistem Karir & Rekrutmen, Klien & Testimonial, Multilingual Support, SEO Lengkap',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas',
                             duration: '35 Hari Kerja'
                         }
@@ -2066,7 +1981,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan'
                         }
@@ -2090,8 +2005,8 @@
                         details: {
                             pages: 'Beranda, Artikel, Kontak',
                             features: 'Sistem Blog Dasar, Form Komentar',
-                            storage: '500 MB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '500 MB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '6 Hari Kerja'
                         }
@@ -2108,8 +2023,8 @@
                         details: {
                             pages: 'Beranda, Artikel, Kategori, Tentang, Kontak',
                             features: 'Sistem Blog Dasar, Form Komentar, Integrasi Media Sosial',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '10 Hari Kerja'
                         }
@@ -2127,8 +2042,8 @@
                         details: {
                             pages: 'Beranda, Artikel, Kategori, Tag, Tentang, Kontak, Newsletter',
                             features: 'Sistem Blog Lengkap, Form Komentar & Newsletter, Integrasi Media Sosial Lengkap, Statistik Dasar',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '15 Hari Kerja'
                         }
@@ -2148,8 +2063,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Membership, Monetisasi, Analytics',
                             features: 'Sistem Blog Premium, Membership System, Monetisasi & Iklan, Analytics Lengkap, SEO Advanced',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas',
                             duration: '25 Hari Kerja'
                         }
@@ -2167,7 +2082,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan'
                         }
@@ -2190,8 +2105,8 @@
                         details: {
                             pages: 'Beranda, Forum, Anggota',
                             features: 'Forum Diskusi Dasar, Sistem Anggota Sederhana',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '15 Hari Kerja'
                         }
@@ -2208,8 +2123,8 @@
                         details: {
                             pages: 'Beranda, Forum, Kategori, Anggota, Tentang',
                             features: 'Forum Diskusi Dasar, Sistem Anggota, Kategori Forum, Moderasi Dasar',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '20 Hari Kerja'
                         }
@@ -2227,8 +2142,8 @@
                         details: {
                             pages: 'Semua halaman Basic + Private Messaging, Notifikasi, Grup',
                             features: 'Forum Lengkap, Sistem Anggota dengan Profil, Private Messaging, Moderasi Lengkap, Integrasi Media Sosial',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '30 Hari Kerja'
                         }
@@ -2248,8 +2163,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Membership Levels, Premium Content, Monetisasi',
                             features: 'Forum Premium, Sistem Membership Lengkap, Premium Content, Monetisasi, Analytics & Reporting, Mobile App Ready',
-                            storage: '20 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '20 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas',
                             duration: '50 Hari Kerja'
                         }
@@ -2267,7 +2182,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan'
                         }
@@ -2291,8 +2206,8 @@
                         details: {
                             pages: 'Beranda, Berita, Kategori, Kontak',
                             features: 'Sistem Berita Dasar, Editor Single User',
-                            storage: '2 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '2 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '10 Hari Kerja'
                         }
@@ -2309,8 +2224,8 @@
                         details: {
                             pages: 'Beranda, Berita, Kategori, Tentang, Kontak',
                             features: 'Sistem Berita Dasar, Form Komentar, Editor Single User',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '20 Hari Kerja'
                         }
@@ -2328,8 +2243,8 @@
                         details: {
                             pages: 'Semua halaman Basic + Redaksi, Subscription, Arsip',
                             features: 'Sistem Berita Lengkap, Editor Multi-User, Sistem Subscription, Integrasi Media Sosial',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '30 Hari Kerja'
                         }
@@ -2349,8 +2264,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Live Blog, Analytics, Mobile App',
                             features: 'Sistem Berita Premium, Editor dengan Level Akses, Live Blogging, Analytics Lengkap, Mobile App Ready',
-                            storage: '20 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '20 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas',
                             duration: '55 Hari Kerja'
                         }
@@ -2368,7 +2283,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan'
                         }
@@ -2392,8 +2307,8 @@
                         details: {
                             pages: 'Beranda, Tentang, Program, Kontak',
                             features: 'Profil Organisasi Dasar, Program & Kegiatan, Form Kontak',
-                            storage: '1 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '1 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Minggu via Chat',
                             duration: '7 Hari Kerja'
                         }
@@ -2410,8 +2325,8 @@
                         details: {
                             pages: 'Beranda, Tentang, Program, Galeri, Kontak',
                             features: 'Profil Organisasi, Program & Kegiatan, Galeri, Form Kontak',
-                            storage: '3 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '3 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 1 Bulan via Email',
                             duration: '14 Hari Kerja'
                         }
@@ -2429,8 +2344,8 @@
                         details: {
                             pages: 'Semua halaman Basic + Donasi, Relawan, Impact',
                             features: 'Semua fitur Basic + Sistem Donasi Dasar, Form Relawan, Testimonial & Impact, Integrasi Media Sosial',
-                            storage: '5 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '5 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 3 Bulan via Email & WhatsApp',
                             duration: '25 Hari Kerja'
                         }
@@ -2449,8 +2364,8 @@
                         details: {
                             pages: 'Semua halaman Standard + Sistem Donasi Lengkap, Manajemen Relawan, Laporan Impact, Multilingual Support',
                             features: 'Sistem Donasi Lengkap, Manajemen Relawan, Laporan Impact, Multilingual Support',
-                            storage: '10 GB', // Adjusted storage
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            storage: '10 GB',
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Dukungan 6 Bulan Prioritas',
                             duration: '40 Hari Kerja'
                         }
@@ -2468,7 +2383,7 @@
                             pages: 'Sesuai Kebutuhan',
                             features: 'Disesuaikan',
                             storage: 'Disesuaikan',
-                            hosting: 'Sudah Termasuk Hosting & Domain Dasar', // Added hosting detail
+                            hosting: 'Sudah Termasuk Hosting & Domain Dasar',
                             support: 'Disesuaikan',
                             duration: 'Disesuaikan'
                         }
@@ -2537,7 +2452,7 @@
         ];
 
         // ============================================
-        // VARIABEL STATE
+        // STATE VARIABLES
         // ============================================
         let currentPage = 'landing';
         let selectedService = null;
@@ -2545,14 +2460,14 @@
         let orderId = null;
         let currentTestimonialIndex = 0;
         let testimonialAutoSlideInterval; // Variable to hold the interval ID
-        const whatsappPhoneNumber = '62859148219009'; // Nomor WhatsApp yang diperbarui
-        const instagramUsername = 'faqihalrf'; // Username Instagram yang diperbarui
-        const tiktokUsername = 'faqihalrf'; // Username TikTok yang diperbarui
-        const companyEmail = 'faqihalrf@gmail.com'; // Email yang diperbarui
-        const companyAddress = 'Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman Suci Blok C3 No 1'; // Alamat yang diperbarui
+        const whatsappPhoneNumber = '62859148219009'; // Updated WhatsApp number
+        const instagramUsername = 'faqihalrf'; // Updated Instagram username
+        const tiktokUsername = 'faqihalrf'; // Updated TikTok username
+        const companyEmail = 'faqihalrf@gmail.com'; // Updated email
+        const companyAddress = 'Indonesia, Jawa Barat, Kab. Cirebon, Kec. Mundu, Desa Suci, Perumahan Griya Taman Suci Blok C3 No 1'; // Updated address
 
         // ============================================
-        // FUNGSI UTILITAS
+        // UTILITY FUNCTIONS
         // ============================================
         function generateOrderId() {
             const prefix = 'ORD';
@@ -2597,11 +2512,11 @@
         }
 
         // ============================================
-        // FUNGSI NAVIGASI
+        // NAVIGATION FUNCTIONS
         // ============================================
         function navigateTo(page) {
             const loadingOverlay = document.getElementById('loading-overlay');
-            loadingOverlay.classList.add('show'); // Tampilkan loading overlay
+            loadingOverlay.classList.add('show'); // Show loading overlay
 
             // Clear auto-slide interval when navigating away from landing page
             if (page !== 'landing' && testimonialAutoSlideInterval) {
@@ -2609,70 +2524,85 @@
             }
 
             setTimeout(() => {
-                // Sembunyikan semua halaman
+                // Hide all pages
                 document.getElementById('landing-page').style.display = 'none';
                 document.getElementById('package-selection').style.display = 'none';
                 document.getElementById('package-details').style.display = 'none';
                 document.getElementById('order-form').style.display = 'none';
                 document.getElementById('order-confirmation').style.display = 'none';
                 
-                // Sembunyikan elemen-elemen yang tidak diinginkan di halaman selain landing
-                document.getElementById('dropdown-section').style.display = 'none';
+                // Hide elements not desired on pages other than landing
+                document.getElementById('web-type-selection').style.display = 'none';
                 document.getElementById('testimonial-section').style.display = 'none';
-                document.getElementById('main-footer').style.display = 'none'; // Sembunyikan footer secara default
+                document.getElementById('main-footer').style.display = 'none'; // Hide footer by default
                 
-                // Tampilkan halaman yang diminta dan atur visibilitas footer
+                // Show the requested page and set footer visibility
                 switch(page) {
                     case 'landing':
                         document.getElementById('landing-page').style.display = 'block';
-                        document.getElementById('dropdown-section').style.display = 'block';
+                        document.getElementById('web-type-selection').style.display = 'block';
                         document.getElementById('testimonial-section').style.display = 'block';
-                        document.getElementById('main-footer').style.display = 'block'; // Tampilkan footer untuk landing
+                        document.getElementById('main-footer').style.display = 'block'; // Show footer for landing
                         startTestimonialAutoSlide(); // Start auto-slide when on landing
                         break;
                     case 'package-selection':
                         document.getElementById('package-selection').style.display = 'block';
-                        // Footer TIDAK ditampilkan di sini
+                        // Footer is NOT displayed here
                         break;
                     case 'package-details':
                         document.getElementById('package-details').style.display = 'block';
-                        // Footer TIDAK ditampilkan di sini
+                        // Footer is NOT displayed here
                         break;
                     case 'order-form':
                         document.getElementById('order-form').style.display = 'block';
-                        // Footer TIDAK ditampilkan di sini
+                        // Footer is NOT displayed here
                         break;
                     case 'order-confirmation':
                         document.getElementById('order-confirmation').style.display = 'block';
-                        // Footer TIDAK ditampilkan di sini
+                        // Footer is NOT displayed here
                         break;
                 }
                 
                 currentPage = page;
                 window.scrollTo(0, 0);
-                loadingOverlay.classList.remove('show'); // Sembunyikan loading overlay setelah konten dirender
-            }, 300); // Penundaan kecil untuk menunjukkan efek loading
+                loadingOverlay.classList.remove('show'); // Hide loading overlay after content is rendered
+            }, 300); // Small delay to show loading effect
         }
 
         // ============================================
-        // FUNGSI RENDER
+        // RENDER FUNCTIONS
         // ============================================
-        function renderWebsiteTypesDropdown() {
-            const dropdown = document.getElementById('website-types');
-            dropdown.innerHTML = '';
+        function renderWebsiteTypesCards() {
+            const container = document.getElementById('website-types-container');
+            container.innerHTML = '';
             
             services.forEach(service => {
-                const link = document.createElement('a');
-                link.href = '#';
-                link.innerHTML = `<i class="${service.icon}"></i> ${service.name}`;
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    selectedService = service;
-                    renderPackageSelection();
-                    navigateTo('package-selection');
-                });
-                dropdown.appendChild(link);
+                const card = document.createElement('div');
+                card.className = 'web-type-card scroll-animate'; // Add scroll-animate class
+                card.innerHTML = `
+                    <i class="${service.icon}"></i>
+                    <h3>${service.name}</h3>
+                    <p>${service.description}</p>
+                    <button class="btn btn-primary btn-mini select-web-type-btn" data-service-id="${service.id}">
+                        Pilih Paket
+                    </button>
+                `;
+                container.appendChild(card);
             });
+
+            // Add event listeners to the new buttons
+            document.querySelectorAll('.select-web-type-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const serviceId = e.currentTarget.getAttribute('data-service-id');
+                    selectedService = services.find(s => s.id === serviceId);
+                    if (selectedService) {
+                        renderPackageSelection();
+                        navigateTo('package-selection');
+                    }
+                });
+            });
+
+            initScrollAnimations(); // Initialize scroll animations for new cards
         }
 
         function renderPackageSelection() {
@@ -2681,7 +2611,7 @@
             const packagesContainer = document.getElementById('packages-container');
             packagesContainer.innerHTML = '';
             
-            // Urutan paket: Starter, Basic, Standard, Premium, Custom
+            // Package order: Starter, Basic, Standard, Premium, Custom
             const packageOrder = ['starter', 'basic', 'standard', 'premium', 'custom'];
 
             packageOrder.forEach(type => {
@@ -2689,7 +2619,7 @@
                 if (!pkg) return; // Skip if package type doesn't exist for this service
 
                 const packageCard = document.createElement('div');
-                packageCard.className = 'package-card scroll-animate'; // Tambahkan class scroll-animate
+                packageCard.className = 'package-card scroll-animate'; // Add scroll-animate class
                 
                 if (pkg.popular) {
                     packageCard.innerHTML = `<div class="popular-tag"><i class="fas fa-crown"></i> POPULAR</div>`;
@@ -2721,7 +2651,7 @@
                 packagesContainer.appendChild(packageCard);
             });
             
-            // Tambahkan event listener ke tombol package
+            // Add event listener to package buttons
             document.querySelectorAll('.package-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const packageType = e.target.getAttribute('data-type');
@@ -2733,7 +2663,7 @@
                     navigateTo('package-details');
                 });
             });
-            initScrollAnimations(); // Inisialisasi animasi scroll untuk kartu baru
+            initScrollAnimations(); // Initialize scroll animations for new cards
         }
 
         function renderPackageDetails() {
@@ -2879,12 +2809,12 @@
                 </div>
             `;
             
-            // Event listener untuk tombol "Isi Form Pemesanan"
+            // Event listener for "Isi Form Pemesanan" button
             document.getElementById('proceed-to-form-btn').addEventListener('click', () => {
                 navigateTo('order-form');
             });
 
-            // Event listener untuk tombol "Kembali" dari detail paket ke pemilihan paket
+            // Event listener for "Back" button from package details to package selection
             document.getElementById('back-to-packages-from-details').addEventListener('click', () => {
                 navigateTo('package-selection');
             });
@@ -2952,9 +2882,7 @@
 
         function renderTestimonials() {
             const testimonialWrapper = document.getElementById('testimonial-wrapper');
-            // Removed the sliderDots element from here
             testimonialWrapper.innerHTML = '';
-            // Removed sliderDots.innerHTML = '';
 
             testimonialsData.forEach((testimonial, index) => {
                 const testimonialCard = document.createElement('div');
@@ -2976,14 +2904,12 @@
                 testimonialWrapper.appendChild(testimonialCard);
             });
 
-            // Removed the loop that creates dots
             updateTestimonialSlider();
         }
 
         function updateTestimonialSlider() {
             const testimonialWrapper = document.getElementById('testimonial-wrapper');
             const testimonialCards = testimonialWrapper.querySelectorAll('.testimonial-card');
-            // Removed the sliderDots element from here
 
             if (testimonialCards.length === 0) return;
 
@@ -3012,8 +2938,6 @@
             
             const offset = -currentTestimonialIndex * cardWidth;
             testimonialWrapper.style.transform = `translateX(${offset}px)`;
-
-            // Removed dot update logic
         }
 
         function startTestimonialAutoSlide() {
@@ -3038,7 +2962,7 @@
         }
 
         // ============================================
-        // FUNGSI PROSES ORDER
+        // ORDER PROCESSING FUNCTIONS
         // ============================================
         function processOrderWhatsApp() {
             const customerName = document.getElementById('customer-name').value;
@@ -3052,7 +2976,7 @@
                 return;
             }
 
-            orderId = generateOrderId(); // Buat ID pesanan di sini
+            orderId = generateOrderId(); // Generate order ID here
 
             const message = `Halo, saya ingin memesan paket website.\n\n` +
                             `*Detail Pemesanan:*\n` +
@@ -3090,11 +3014,11 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show');
-                        observer.unobserve(entry.target); // Berhenti mengamati setelah dianimasikan
+                        observer.unobserve(entry.target); // Stop observing after animation
                     }
                 });
             }, {
-                threshold: 0.1 // Pemicu saat 10% elemen terlihat
+                threshold: 0.1 // Trigger when 10% of the element is visible
             });
 
             animatedElements.forEach(element => {
@@ -3103,10 +3027,10 @@
         }
 
         // ============================================
-        // INISIALISASI APLIKASI
+        // APP INITIALIZATION
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
-            // Perbarui informasi kontak di footer
+            // Update contact information in the footer
             const instagramLink = document.querySelector('.footer-column .social-links a[href*="instagram.com"]');
             if (instagramLink) {
                 instagramLink.href = `https://instagram.com/${instagramUsername}`;
@@ -3117,7 +3041,7 @@
                 whatsappLink.href = `https://wa.me/${whatsappPhoneNumber}`;
             }
             
-            // Tambahkan TikTok jika belum ada, atau perbarui jika sudah ada
+            // Add TikTok if not already present, or update if it is
             let tiktokLink = document.querySelector('.footer-column .social-links a[href*="tiktok.com"]');
             if (!tiktokLink) {
                 tiktokLink = document.createElement('a');
@@ -3128,7 +3052,7 @@
             } else {
                 tiktokLink.href = `https://www.tiktok.com/@${tiktokUsername}`;
             }
-            // Hapus ikon Twitter dan Facebook
+            // Remove Twitter and Facebook icons
             const twitterLink = document.querySelector('.footer-column .social-links a[href*="twitter.com"]');
             if (twitterLink) twitterLink.remove();
             const facebookLink = document.querySelector('.footer-column .social-links a[href*="facebook.com"]');
@@ -3155,22 +3079,22 @@
             for (const method in paymentMethodIcons) {
                 const option = document.createElement('option');
                 option.value = method;
-                // Add the icon directly to the option's text for display in the dropdown
-                option.innerHTML = `<i class="${paymentMethodIcons[method]}" style="margin-right: 0.5rem;"></i>${method}`;
+                // Display only text, icon will be handled by CSS or custom rendering if needed
+                option.innerHTML = `${method}`; 
                 paymentMethodSelect.appendChild(option);
             }
 
-            // Render dropdown jenis website
-            renderWebsiteTypesDropdown();
-            renderTestimonials(); // Render testimoni for slider
+            // Render website types as cards
+            renderWebsiteTypesCards();
+            renderTestimonials(); // Render testimonials for slider
 
-            // Setup tombol kembali ke beranda
+            // Setup back to home button
             document.getElementById('back-to-home').addEventListener('click', (e) => {
                 e.preventDefault();
                 navigateTo('landing');
             });
 
-            // Event listener untuk tombol kembali dari halaman pemilihan paket ke landing
+            // Event listener for back button from package selection page to landing
             document.getElementById('back-to-landing-from-packages').addEventListener('click', (e) => {
                 e.preventDefault();
                 navigateTo('landing');
@@ -3206,21 +3130,21 @@
                 startTestimonialAutoSlide(); // Adjust auto-slide based on new window size
             });
 
-            // Event listener untuk form pemesanan
+            // Event listener for order form submission
             document.getElementById('order-details-form').addEventListener('submit', (e) => {
-                e.preventDefault(); // Mencegah submit form default
+                e.preventDefault(); // Prevent default form submission
                 processOrderWhatsApp();
             });
 
-            // Event listener untuk tombol kembali dari form ke detail paket
+            // Event listener for back button from form to package details
             document.getElementById('back-to-details').addEventListener('click', (e) => {
                 e.preventDefault();
                 navigateTo('package-details');
             });
             
-            // Mulai dengan halaman landing
+            // Start with the landing page
             navigateTo('landing');
-            initScrollAnimations(); // Inisialisasi animasi scroll saat pemuatan awal
+            initScrollAnimations(); // Initialize scroll animations on initial load
             startTestimonialAutoSlide(); // Start auto-slide on initial load if on desktop
         });
     </script>
