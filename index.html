@@ -1,0 +1,3235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D'CORPS | Solusi Inovatif</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Favicon Placeholder: Updated to match Celladon Blue -->
+    <link rel="icon" href="https://placehold.co/32x32/4A676E/ffffff?text=DC" type="image/x-icon">
+    <style>
+        /* Variabel CSS untuk konsistensi warna dan bayangan */
+        :root {
+            --primary: #4A676E; /* Warna utama: Celladon Blue */
+            --primary-dark: #3A575E; /* Warna utama lebih gelap */
+            --secondary: #E0D8B0; /* Warna aksen: Muted Light Yellow/Beige */
+            --dark: #1e293b; /* Warna teks gelap (Slate 800) */
+            --light: #f8fafc; /* Warna latar belakang terang (Slate 50) */
+            --gray: #64748b; /* Warna teks abu-abu (Slate 500) */
+            --success: #10b981; /* Warna hijau (Emerald 500) */
+            --error: #ef4444; /* Warna merah (Red 500) */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Reset CSS dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Gaya dasar body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        /* Kontainer utama untuk konten */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: transparent; /* Awalnya transparan */
+            box-shadow: none; /* Tanpa bayangan awal */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Transisi untuk semua properti */
+        }
+
+        header.header-scrolled {
+            background-color: white;
+            box-shadow: var(--shadow);
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%); /* Sembunyikan dengan menggeser ke atas */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px; /* Tambahkan padding untuk underline */
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { /* Tambahkan active state */
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0; /* Sesuaikan posisi underline */
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { /* Tambahkan active state */
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Gaya tombol CTA (Call to Action) */
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer; /* Pastikan kursor berubah */
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow);
+        }
+
+        .secondary-button {
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s, transform 0.2s, box-shadow 0.3s;
+            display: inline-block;
+            border: 2px solid var(--primary);
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow);
+            cursor: pointer; /* Pastikan kursor berubah */
+        }
+
+        .secondary-button:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .secondary-button:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            /* Updated gradient colors to match new primary color */
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); /* Keep light blue shades for background */
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Stats Section (Grid Layout) */
+        .stats {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            /* Updated background color to match new primary color */
+            background-color: #f0f9ff; /* Keep light blue shade for background */
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease-in-out;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .stat-item:hover .stat-number::after {
+            width: 50%;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Features Section (now a grid) */
+        .features {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .features-grid.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            /* Updated hover background color */
+            background-color: #e0f2fe; /* Keep light blue shade for background */
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 20px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            background-color: var(--primary-dark);
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* Class untuk kartu fitur yang awalnya tersembunyi */
+        .feature-card.hidden-card {
+            display: none;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background-color: #f1f5f9;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--dark);
+        }
+
+        .tab-button.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .service-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .service-content.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .service-image canvas {
+            max-width: 100%;
+            height: auto;
+            min-height: 400px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Gaya Bagian Big Data */
+        .bigdata {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .bigdata-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .bigdata-content.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bigdata-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .bigdata-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .bigdata-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .bigdata-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .bigdata-text ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .bigdata-text ul li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .bigdata-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .bigdata-image canvas {
+            max-width: 100%;
+            height: auto;
+            min-height: 400px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Testimonials Section (New Layout) */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .testimonial-grid.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-direction: column;
+        }
+
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-author-info {
+            text-align: center;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 15px;
+            flex-grow: 1;
+        }
+
+        .testimonial-rating {
+            color: #FFD700; /* Warna emas untuk bintang */
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        /* Class untuk kartu testimonial yang awalnya tersembunyi */
+        .testimonial-card.hidden-card {
+            display: none;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .pricing-grid.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pricing-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            /* Updated background color for popular card */
+            background-color: #e0f2fe; /* Keep light blue shade for background */
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-title {
+            font-size: 19px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .pricing-price {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            margin-bottom: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .pricing-feature i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* Team Section (now a grid with Load More) */
+        .team {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .team-grid.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover .member-image {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-name {
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-links a {
+            color: var(--gray);
+            transition: color 0.3s, transform 0.2s;
+            font-size: 17px;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Class untuk kartu anggota tim yang awalnya tersembunyi */
+        .team-member.hidden-card {
+            display: none;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .contact-info.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            /* Updated background color for contact icon */
+            background-color: #dbeafe; /* Keep light blue shade for background */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8fafc;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .contact-form.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Clients */
+        .clients {
+            padding: 60px 0;
+            background-color: #f8fafc;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .client-logos.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .client-logo {
+            max-width: 150px;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            /* Updated gradient colors to match new primary color */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-section .container {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .cta-section .container.content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-links h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-subscribe input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #334155;
+            color: white;
+        }
+
+        .footer-subscribe input::placeholder {
+            color: #94a3b8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: white;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        .footer-bottom a:hover {
+            color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            height: 80%;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-out;
+            display: flex; /* Menggunakan flexbox untuk konten modal */
+            flex-direction: column;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: sticky;
+            top: 0; /* Ubah dari 15px menjadi 0 */
+            right: 0; /* Ubah dari 15px menjadi 0 */
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+            background-color: white;
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            align-self: flex-end;
+            margin: -15px -15px 15px auto; /* Sesuaikan margin untuk posisi di sudut kanan atas */
+        }
+
+        .close-modal:hover {
+            color: var(--dark);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .modal-body {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--dark);
+            flex-grow: 1; /* Memungkinkan body modal mengisi ruang yang tersedia */
+        }
+
+        .modal-body h4 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .modal-body ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .modal-body li {
+            margin-bottom: 5px;
+        }
+
+        .payment-options {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .payment-option:hover {
+            background-color: #e2e8f0;
+            box-shadow: var(--shadow);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+
+        .payment-option img {
+            width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .payment-option label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0;
+        }
+
+        /* Loading Overlay */
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        #loadingOverlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--primary);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Message Box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--primary); /* Default info */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 2001;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            text-align: center;
+        }
+        .message-box.success { background-color: var(--success); }
+        .message-box.error { background-color: var(--error); }
+        .message-box.info { background-color: var(--primary); }
+
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-5px);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-8px);
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Animasi Scroll untuk konten di dalam bagian */
+        .content-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .content-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gaya Responsif */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 40px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .service-content, .bigdata-content {
+                flex-direction: column;
+            }
+
+            .features-grid, .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .stat-label {
+                font-size: 16px;
+            }
+            
+            .pricing-card {
+                padding: 30px 20px;
+            }
+            
+            .pricing-price {
+                font-size: 36px;
+            }
+
+            .service-image canvas, .bigdata-image canvas {
+                height: 350px;
+                max-width: 100%;
+            }
+
+            .features-grid, .team-grid, .pricing-grid, .testimonial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .feature-card, .pricing-card, .team-member {
+                padding: 15px;
+            }
+            .feature-card h3, .pricing-title, .member-name {
+                font-size: 16px;
+            }
+            .feature-card p, .pricing-period, .pricing-feature, .member-role {
+                font-size: 12px;
+            }
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .pricing-price {
+                font-size: 32px;
+            }
+            .social-links a {
+                font-size: 16px;
+            }
+            .modal-content {
+                padding: 20px; /* Kurangi padding modal di layar kecil */
+            }
+            .close-modal {
+                margin: -10px -10px 10px auto; /* Sesuaikan margin close button */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i>
+                    D'CORPS
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#bigdata">Big Data</a></li>
+                    <li><a href="#pricing">Harga</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#" class="cta-button" id="loginBtn">Masuk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Solusi Inovatif untuk Pertumbuhan Bisnis Anda</h1>
+                    <p>Kami membantu bisnis mewujudkan ide-ide mereka menjadi kenyataan dengan solusi teknologi mutakhir dan layanan konsultasi ahli kami. Kami berdedikasi untuk memberikan hasil yang terukur dan membantu Anda mencapai tujuan digital Anda.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="cta-button">Mulai Sekarang</a>
+                        <a href="#services" class="secondary-button">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Gambar Tim Bisnis Berkolaborasi di kantor modern">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container content-hidden">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="clientsCount" data-target="544">0</div>
+                    <div class="stat-label">Klien Bahagia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="projectsCount" data-target="857">0</div>
+                    <div class="stat-label">Proyek Selesai</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="teamCount" data-target="45">0</div>
+                    <div class="stat-label">Tim Ahli</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="countriesCount" data-target="15">0</div>
+                    <div class="stat-label">Negara</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang D'CORPS</h2>
+                <p>Kami adalah perusahaan teknologi terkemuka yang berdedikasi untuk mendorong inovasi dan kesuksesan bagi klien kami di seluruh dunia.</p>
+            </div>
+            <div class="about-content content-hidden">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Gambar Kolaborasi di kantor modern dengan laptop dan papan tulis">
+                </div>
+                <div class="about-text">
+                    <h3>Visi & Misi Kami</h3>
+                    <p>Visi kami adalah menjadi mitra tepercaya bagi bisnis yang ingin berkembang di era digital. Misi kami adalah menyediakan solusi teknologi yang inovatif, aman, dan dapat diskalakan yang disesuaikan dengan kebutuhan unik setiap klien.</p>
+                    <p>Dengan tim ahli yang bersemangat dan berdedikasi, kami berkomitmen untuk memberikan keunggulan dalam setiap proyek yang kami lakukan, memastikan kepuasan klien dan kesuksesan jangka panjang.</p>
+                    <a href="#contact" class="cta-button">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (Grid with Load More) -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mengapa Memilih Kami</h2>
+                <p>Kami menyediakan solusi inovatif dengan teknologi terbaru untuk membantu bisnis Anda tumbuh dan berhasil di dunia digital.</p>
+            </div>
+            <div class="features-grid content-hidden" id="featuresGrid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Performa Cepat</h3>
+                    <p>Solusi kami dioptimalkan untuk kecepatan dan performa guna memastikan bisnis Anda berjalan lancar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Solusi Aman</h3>
+                    <p>Keamanan adalah prioritas utama kami. Kami menerapkan langkah-langkah keamanan terbaru untuk melindungi data Anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analisis Data</h3>
+                    <p>Dapatkan wawasan berharga dengan alat analisis canggih kami untuk membuat keputusan bisnis yang terinformasi.</p>
+                </div>
+                <div class="feature-card hidden-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Dukungan 24/7</h3>
+                    <p>Tim dukungan kami yang berdedikasi tersedia sepanjang waktu untuk membantu Anda dengan masalah apa pun.</p>
+                </div>
+                <div class="feature-card hidden-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Desain Responsif</h3>
+                    <p>Solusi kami bekerja dengan mulus di semua perangkat, dari desktop hingga seluler.</p>
+                </div>
+                <div class="feature-card hidden-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Solusi Kustom</h3>
+                    <p>Kami menyesuaikan layanan kami untuk memenuhi kebutuhan dan persyaratan bisnis spesifik Anda.</p>
+                </div>
+                <div class="feature-card hidden-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Integrasi Cloud</h3>
+                    <p>Integrasi tanpa batas dengan layanan cloud populer untuk skalabilitas dan fleksibilitas.</p>
+                </div>
+                <div class="feature-card hidden-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Desain UI/UX</h3>
+                    <p>Desain yang berpusat pada pengguna untuk pengalaman yang intuitif dan menyenangkan.</p>
+                </div>
+            </div>
+            <div class="load-more-container">
+                <button id="loadMoreFeatures" class="secondary-button">Muat Lebih Banyak Fitur</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Kami menawarkan berbagai layanan komprehensif untuk membantu bisnis Anda berkembang di lanskap digital.</p>
+            </div>
+            <div class="services-tabs">
+                <button class="tab-button active" data-tab="web-development">Pengembangan Web</button>
+                <button class="tab-button" data-tab="mobile-app">Aplikasi Seluler</button>
+                <button class="tab-button" data-tab="cloud-services">Layanan Cloud</button>
+                <button class="tab-button" data-tab="digital-marketing">Pemasaran Digital</button>
+            </div>
+            <div class="tab-content active" id="web-development">
+                <div class="service-content content-hidden">
+                    <div class="service-text">
+                        <h3>Pengembangan Web Kustom</h3>
+                        <p>Kami menciptakan situs web yang menakjubkan dan berkinerja tinggi yang disesuaikan dengan kebutuhan bisnis Anda. Tim pengembang ahli kami menggunakan teknologi terbaru untuk membangun situs web responsif, ramah SEO yang mendorong hasil.</p>
+                        <p>Dari situs web brosur sederhana hingga aplikasi web yang kompleks, kami siap membantu Anda dengan solusi yang dapat diskalakan yang tumbuh bersama bisnis Anda.</p>
+                        <a href="#contact" class="cta-button">Dapatkan Penawaran</a>
+                    </div>
+                    <div class="service-image">
+                        <canvas id="webDevChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="mobile-app">
+                <div class="service-content content-hidden">
+                    <div class="service-text">
+                        <h3>Pengembangan Aplikasi Seluler</h3>
+                        <p>Jangkau pelanggan Anda di mana pun mereka berada dengan layanan pengembangan aplikasi seluler kustom kami. Kami membangun aplikasi asli dan lintas platform untuk iOS dan Android yang memberikan pengalaman pengguna yang luar biasa.</p>
+                        <p>Aplikasi kami dirancang dengan mempertimbangkan kinerja dan kegunaan, membantu Anda melibatkan audiens dan mencapai tujuan bisnis Anda.</p>
+                        <a href="#contact" class="cta-button">Dapatkan Penawaran</a>
+                    </div>
+                    <div class="service-image">
+                        <canvas id="mobileAppChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="cloud-services">
+                <div class="service-content content-hidden">
+                    <div class="service-text">
+                        <h3>Layanan Komputasi Awan</h3>
+                        <p>Migrasi ke cloud dengan percaya diri. Pakar cloud kami membantu Anda memanfaatkan kekuatan AWS, Azure, dan Google Cloud untuk mengoptimalkan infrastruktur dan mengurangi biaya.</p>
+                        <p>Kami menyediakan solusi cloud end-to-end termasuk migrasi, manajemen, keamanan, dan optimasi untuk memastikan bisnis Anda berjalan lancar di cloud.</p>
+                        <a href="#contact" class="cta-button">Dapatkan Penawaran</a>
+                    </div>
+                    <div class="service-image">
+                        <canvas id="cloudChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="digital-marketing">
+                <div class="service-content content-hidden">
+                    <div class="service-text">
+                        <h3>Solusi Pemasaran Digital</h3>
+                        <p>Tingkatkan visibilitas online Anda dan tarik lebih banyak pelanggan dengan layanan pemasaran digital komprehensif kami. Dari SEO hingga pemasaran media sosial, kami memiliki strategi untuk mengembangkan bisnis Anda.</p>
+                        <p>Pendekatan berbasis data kami memastikan Anda mendapatkan hasil yang terukur dan pengembalian investasi pemasaran yang kuat.</p>
+                        <a href="#contact" class="cta-button">Dapatkan Penawaran</a>
+                    </div>
+                    <div class="service-image">
+                        <canvas id="marketingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Data Section -->
+    <section class="bigdata" id="bigdata">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kekuatan Big Data untuk Bisnis Anda</h2>
+                <p>Manfaatkan potensi data Anda dengan solusi Big Data kami yang inovatif, dirancang untuk wawasan yang dapat ditindaklanjuti dan pertumbuhan bisnis.</p>
+            </div>
+            <div class="bigdata-content content-hidden">
+                <div class="bigdata-text">
+                    <h3>Transformasi Data Menjadi Wawasan</h3>
+                    <p>Di D'CORPS, kami memahami bahwa data adalah aset paling berharga Anda. Solusi Big Data kami memungkinkan Anda mengumpulkan, menyimpan, memproses, dan menganalisis volume data yang sangat besar dari berbagai sumber.</p>
+                    <p>Dengan teknologi canggih seperti Apache Hadoop, Spark, dan alat visualisasi data, kami membantu Anda mengungkap pola tersembunyi, memprediksi tren, dan membuat keputusan berbasis data yang mendorong inovasi dan keunggulan kompetitif.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Analisis Prediktif untuk Prakiraan Akurat</li>
+                        <li><i class="fas fa-check-circle"></i> Wawasan Pelanggan yang Mendalam</li>
+                        <li><i class="fas fa-check-circle"></i> Optimasi Operasional Berbasis Data</li>
+                        <li><i class="fas fa-check-circle"></i> Keamanan Data Tingkat Lanjut</li>
+                        <li><i class="fas fa-check-circle"></i> Skalabilitas Tanpa Batas</li>
+                    </ul>
+                    <button class="cta-button" id="exploreBigDataBtn">Jelajahi Solusi Big Data</button>
+                </div>
+                <div class="bigdata-image">
+                    <canvas id="bigDataChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (New Version with Load More) -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Klien Kami</h2>
+                <p>Dengarkan dari bisnis yang telah mengubah operasi mereka dengan solusi kami.</p>
+            </div>
+            <div class="testimonial-grid content-hidden" id="testimonialGrid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Foto Klien Sarah Johnson" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">Sarah Johnson</h4>
+                            <p class="testimonial-role">CEO, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"D'CORPS mengubah kehadiran online kami dengan layanan pengembangan web mereka. Lalu lintas situs web kami telah meningkat 300% sejak diluncurkan, dan pengalaman pengguna luar biasa."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Klien Michael Chen" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">Michael Chen</h4>
+                            <p class="testimonial-role">Direktur, Retail Innovations</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Aplikasi seluler yang dikembangkan oleh D'CORPS telah merevolusi cara kami berinteraksi dengan pelanggan kami. Desain intuitif dan kinerja tanpa cela telah meningkatkan penjualan kami secara signifikan."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto Klien Emily Rodriguez" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">Emily Rodriguez</h4>
+                            <p class="testimonial-role">CTO, Financial Services Group</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Layanan migrasi cloud mereka menghemat ribuan biaya infrastruktur kami sambil meningkatkan keandalan sistem kami. Timnya profesional dan berpengetahuan luas selama prosesnya."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card hidden-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/70.jpg" alt="Foto Klien David Lee" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">David Lee</h4>
+                            <p class="testimonial-role">Manajer Pemasaran, Global Brands</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Kerja sama dengan D'CORPS untuk pemasaran digital kami adalah keputusan terbaik yang pernah kami buat. Kampanye mereka sangat efektif, menghasilkan peningkatan besar dalam prospek."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card hidden-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/80.jpg" alt="Foto Klien Olivia Brown" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">Olivia Brown</h4>
+                            <p class="testimonial-role">COO, Manufacturing Solutions</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Tim D'CORPS sangat responsif dan suportif. Mereka membantu kami mengimplementasikan solusi kustom yang sangat meningkatkan efisiensi operasional kami."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card hidden-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="Foto Klien James Miller" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4 class="testimonial-author">James Miller</h4>
+                            <p class="testimonial-role">Pendiri, Creative Agency</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Kami sangat terkesan dengan keahlian mereka dalam pengembangan web. Situs web baru kami tidak hanya terlihat fantastis tetapi juga berkinerja jauh lebih baik."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more-container">
+                <button id="loadMoreTestimonials" class="secondary-button">Muat Lebih Banyak Testimonial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Paket Harga</h2>
+                <p>Pilih paket yang sempurna untuk kebutuhan bisnis Anda. Semua paket dilengkapi dengan jaminan uang kembali 30 hari.</p>
+            </div>
+            <div class="pricing-grid content-hidden">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Pemula</h3>
+                    <div class="pricing-price">$29<span class="pricing-period">/bulan</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Hingga 5 Pengguna</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Analisis Dasar</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dukungan Email</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Penyimpanan 10GB</span>
+                        </li>
+                    </ul>
+                    <button class="cta-button select-plan-btn" data-plan="Pemula" data-price="$29" style="width: 100%; text-align: center;">Mulai Sekarang</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Populer</div>
+                    <h3 class="pricing-title">Profesional</h3>
+                    <div class="pricing-price">$79<span class="pricing-period">/bulan</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Hingga 15 Pengguna</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Analisis Lanjutan</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dukungan Prioritas</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Penyimpanan 100GB</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Akses API</span>
+                        </li>
+                    </ul>
+                    <button class="cta-button select-plan-btn" data-plan="Profesional" data-price="$79" style="width: 100%; text-align: center;">Mulai Sekarang</button>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Perusahaan</h3>
+                    <div class="pricing-price">$199<span class="pricing-period">/bulan</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Pengguna Tidak Terbatas</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Analisis Premium</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dukungan Khusus 24/7</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Penyimpanan 1TB</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Solusi Kustom</span>
+                        </li>
+                    </ul>
+                    <button class="cta-button select-plan-btn" data-plan="Perusahaan" data-price="$199" style="width: 100%; text-align: center;">Mulai Sekarang</button>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Ultimate</h3>
+                    <div class="pricing-price">$399<span class="pricing-period">/bulan</span></div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Semua Fitur Perusahaan</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Konsultan Khusus</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>SLA 99.99% Uptime</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Penyimpanan Tidak Terbatas</span>
+                        </li>
+                        <li class="pricing-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Integrasi Pihak Ketiga</span>
+                        </li>
+                    </ul>
+                    <button class="cta-button select-plan-btn" data-plan="Ultimate" data-price="$399" style="width: 100%; text-align: center;">Mulai Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section (Grid with Load More) -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Temui Tim Kami</h2>
+                <p>Tim ahli kami berdedikasi untuk memberikan hasil luar biasa untuk bisnis Anda.</p>
+            </div>
+            <div class="team-grid content-hidden" id="teamGrid">
+                <div class="team-member">
+                    <img src="https://media.istockphoto.com/id/960115700/photo/portrait-of-young-asian-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=BQeaAR5KAWsJugj-1CW_NDX1fj8SqXfFIuIPSFWkeDc=" alt="Foto David Wilson, CEO & Pendiri" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">David Wilson</h4>
+                        <p class="member-role">CEO & Pendiri</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://media.istockphoto.com/id/2157113127/photo/asian-woman-sitting-on-a-metro-skytrain-using-her-phone-and-looking-away.webp?a=1&b=1&s=612x612&w=0&k=20&c=6sSYQyD36iC5s3E6HiAUlnA5mR9IeW2tIzKjyRr7gD4=" alt="Foto Jennifer Lee, CTO" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">Jennifer Lee</h4>
+                        <p class="member-role">CTO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TUFOfGVufDB8fDB8fHww" alt="Foto Robert Garcia, Pengembang Utama" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">Robert Garcia</h4>
+                        <p class="member-role">Pengembang Utama</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://media.istockphoto.com/id/2169994629/photo/asian-woman-working-on-tablet.webp?a=1&b=1&s=612x612&w=0&k=20&c=nBuazliYn8IZggOEqsBBeqewKyP2nDT7N-onxVU4wKE=" alt="Foto Amanda Smith, Direktur Pemasaran" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">Amanda Smith</h4>
+                        <p class="member-role">Direktur Pemasaran</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member hidden-card">
+                    <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TUFOfGVufDB8fDB8fHww" alt="Foto John Doe, Analis Data Senior" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">John Doe</h4>
+                        <p class="member-role">Analis Data Senior</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member hidden-card">
+                    <img src="https://media.istockphoto.com/id/2182163332/photo/smiling-young-asian-woman-with-crossed-arms-looking-at-camera-standing-isolated-on-blue.webp?a=1&b=1&s=612x612&w=0&k=20&c=R584HttneLO13Uz6mXUl3vSi99isb9WdGBapZUdYuPg=" alt="Foto Jane Smith, Spesialis UI/UX" class="member-image">
+                    <div class="member-info">
+                        <h4 class="member-name">Jane Smith</h4>
+                        <p class="member-role">Spesialis UI/UX</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="load-more-container">
+                <button id="loadMoreTeam" class="secondary-button">Muat Lebih Banyak Tim</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dipercaya Oleh Perusahaan Terkemuka</h2>
+                <p>Kami bangga bermitra dengan pemimpin industri di berbagai sektor.</p>
+            </div>
+            <div class="client-logos content-hidden">
+                <img src="https://placehold.co/150x60/336699/ffffff?text=TechCorp" alt="Logo Perusahaan TechCorp" class="client-logo">
+                <img src="https://placehold.co/150x60/663399/ffffff?text=GlobalSoft" alt="Logo Perusahaan GlobalSoft" class="client-logo">
+                <img src="https://placehold.co/150x60/993333/ffffff?text=InnoVate" alt="Logo Perusahaan InnoVate" class="client-logo">
+                <img src="https://placehold.co/150x60/339966/ffffff?text=DataSys" alt="Logo Perusahaan DataSys" class="client-logo">
+                <img src="https://placehold.co/150x60/996633/ffffff?text=CloudX" alt="Logo Perusahaan CloudX" class="client-logo">
+                <img src="https://placehold.co/150x60/336633/ffffff?text=FutureAI" alt="Logo Perusahaan FutureAI" class="client-logo">
+                <img src="https://placehold.co/150x60/663366/ffffff?text=FinTech" alt="Logo Perusahaan FinTech Solutions" class="client-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Punya proyek dalam pikiran atau ingin tahu lebih banyak tentang layanan kami? Hubungi kami hari ini.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info content-hidden">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>123 Business Ave, Suite 500<br>San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@dcorps.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.665456986449!2d-122.4194157243695!3d37.77492997187485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1689876543210!5m2!1sen!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form content-hidden">
+                    <h3>Kirim Pesan kepada Kami</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container content-hidden">
+            <h2>Siap Mengubah Bisnis Anda?</h2>
+            <p>Bergabunglah dengan ribuan klien yang puas yang telah mengembangkan bisnis mereka dengan solusi inovatif kami.</p>
+            <a href="#contact" class="cta-button">Mulai Hari Ini</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        D'CORPS
+                    </a>
+                    <p>Solusi inovatif untuk pertumbuhan bisnis Anda. Kami membantu perusahaan mengubah ide-ide mereka menjadi kenyataan dengan teknologi mutakhir.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#bigdata">Big Data</a></li>
+                        <li><a href="#pricing">Harga</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Pengembangan Web</a></li>
+                        <li><a href="#">Pengembangan Aplikasi Seluler</a></li>
+                        <li><a href="#">Layanan Cloud</a></li>
+                        <li><a href="#">Pemasaran Digital</a></li>
+                        <li><a href="#">Desain UI/UX</a></li>
+                        <li><a href="#">Analisis Big Data</a></li>
+                    </ul>
+                </div>
+                <div class="footer-subscribe">
+                    <h3>Buletin</h3>
+                    <p>Berlangganan buletin kami untuk pembaruan dan penawaran terbaru.</p>
+                    <form>
+                        <input type="email" placeholder="Alamat Email Anda">
+                        <button type="submit" class="cta-button" style="width: 100%;">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 D'CORPS. Semua Hak Dilindungi. | <a href="#" id="privacyPolicyLink">Kebijakan Privasi</a> | <a href="#" id="termsOfServiceLink">Ketentuan Layanan</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="loginModal">&times;</span>
+            <h3 class="modal-title">Masuk ke Akun Anda</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="contoh@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Kata Sandi</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Minimal 8 karakter" required>
+                </div>
+                <div class="form-group">
+                    <a href="#" id="forgotPasswordLink" style="color: var(--primary); font-size: 14px;">Lupa kata sandi?</a>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Masuk</button>
+                <p style="text-align: center; margin-top: 15px;">Belum punya akun? <a href="#" id="registerLink" style="color: var(--primary);">Daftar Sekarang</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="registerModal">&times;</span>
+            <h3 class="modal-title">Daftar Akun Baru</h3>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nama Lengkap</label>
+                    <input type="text" id="registerName" class="form-control" placeholder="Nama Lengkap Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="contoh@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Kata Sandi</label>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Minimal 8 karakter" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Ulangi Kata Sandi" required>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Daftar</button>
+                <p style="text-align: center; margin-top: 15px;">Sudah punya akun? <a href="#" id="backToLoginLink" style="color: var(--primary);">Masuk</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="forgotPasswordModal">&times;</span>
+            <h3 class="modal-title">Lupa Kata Sandi</h3>
+            <form id="forgotPasswordForm">
+                <p style="text-align: center; margin-bottom: 20px; color: var(--gray);">Masukkan alamat email Anda dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda.</p>
+                <div class="form-group">
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" class="form-control" placeholder="contoh@email.com" required>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Kirim Tautan Reset</button>
+                <p style="text-align: center; margin-top: 15px;"><a href="#" id="backToLoginFromForgotLink" style="color: var(--primary);">Kembali ke Masuk</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="paymentModal">&times;</span>
+            <h3 class="modal-title">Pilih Paket & Pembayaran</h3>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="paymentName">Nama Lengkap</label>
+                    <input type="text" id="paymentName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentEmail">Email</label>
+                    <input type="email" id="paymentEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="selectedPlan">Paket yang Dipilih</label>
+                    <input type="text" id="selectedPlan" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="selectedPrice">Harga</label>
+                    <input type="text" id="selectedPrice" class="form-control" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="transfer_bank" required>
+                            <img src="https://placehold.co/80x46/0056B3/ffffff?text=Bank" alt="Logo Transfer Bank">
+                            Transfer Bank (BCA: 1234567890 an. D'CORPS)
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="dana">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.POr_I7cynEViEKT1Mzf33QHaEo?pid=Api&P=0&h=220" alt="Logo DANA">
+                            DANA (0812-3456-7890 an. D'CORPS)
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="ovo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/OVO_Logo.png/800px-OVO_Logo.png" alt="Logo OVO">
+                            OVO (0812-9876-5432 an. D'CORPS)
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Lanjutkan Pembayaran</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal" id="privacyPolicyModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="privacyPolicyModal">&times;</span>
+            <h3 class="modal-title">Kebijakan Privasi</h3>
+            <div class="modal-body">
+                <h4>1. Pengumpulan Informasi</h4>
+                <p>Kami mengumpulkan informasi dari Anda saat Anda mendaftar di situs kami, melakukan pemesanan, berlangganan buletin kami, atau mengisi formulir. Informasi yang dikumpulkan dapat mencakup nama, alamat email, alamat surat, nomor telepon, atau informasi kartu kredit Anda.</p>
+
+                <h4>2. Penggunaan Informasi</h4>
+                <p>Setiap informasi yang kami kumpulkan dari Anda dapat digunakan untuk salah satu tujuan berikut:</p>
+                <ul>
+                    <li>Untuk mempersonalisasi pengalaman Anda (informasi Anda membantu kami untuk lebih menanggapi kebutuhan pribadi Anda).</li>
+                    <li>Untuk meningkatkan situs web kami (kami terus berupaya meningkatkan penawaran situs web kami berdasarkan informasi dan umpan balik yang kami terima dari Anda).</li>
+                    <li>Untuk meningkatkan layanan pelanggan (informasi Anda membantu kami untuk lebih efektif menanggapi permintaan layanan pelanggan dan kebutuhan dukungan Anda).</li>
+                    <li>Untuk memproses transaksi Anda.</li>
+                    <li>Untuk mengirim email berkala.</li>
+                </ul>
+
+                <h4>3. Perlindungan Informasi Anda</h4>
+                <p>Kami menerapkan berbagai langkah keamanan untuk menjaga keamanan informasi pribadi Anda saat Anda melakukan pemesanan atau memasukkan, mengirimkan, atau mengakses informasi pribadi Anda.</p>
+
+                <h4>4. Pengungkapan kepada Pihak Ketiga</h4>
+                <p>Kami tidak menjual, memperdagangkan, atau mentransfer informasi identitas pribadi Anda kepada pihak luar. Ini tidak termasuk pihak ketiga tepercaya yang membantu kami dalam mengoperasikan situs web kami, melakukan bisnis kami, atau melayani Anda, selama pihak-pihak tersebut setuju untuk menjaga kerahasiaan informasi ini.</p>
+
+                <h4>5. Persetujuan Anda</h4>
+                <p>Dengan menggunakan situs kami, Anda menyetujui kebijakan privasi situs web kami.</p>
+                <p>Kebijakan Privasi ini terakhir diperbarui pada 6 Juli 2025.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal" id="termsOfServiceModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="termsOfServiceModal">&times;</span>
+            <h3 class="modal-title">Ketentuan Layanan</h3>
+            <div class="modal-body">
+                <h4>1. Penerimaan Ketentuan</h4>
+                <p>Dengan mengakses dan menggunakan situs web D'CORPS ("Layanan"), Anda menerima dan setuju untuk terikat oleh ketentuan dan ketentuan dari Ketentuan Layanan ini. Jika Anda tidak setuju dengan ketentuan ini, Anda tidak boleh menggunakan Layanan.</p>
+
+                <h4>2. Perubahan pada Ketentuan</h4>
+                <p>Kami berhak, atas kebijakan kami sendiri, untuk memodifikasi atau mengganti Ketentuan ini kapan saja. Jika revisi adalah materi, kami akan mencoba memberikan pemberitahuan setidaknya 30 hari sebelum ketentuan baru berlaku. Apa yang merupakan perubahan materi akan ditentukan atas kebijakan kami sendiri.</p>
+
+                <h4>3. Penggunaan Layanan</h4>
+                <p>Anda setuju untuk menggunakan Layanan hanya untuk tujuan yang sah dan dengan cara yang tidak melanggar hak, membatasi atau menghalangi penggunaan dan kenikmatan Layanan oleh siapa pun.</p>
+
+                <h4>4. Akun Pengguna</h4>
+                <p>Jika Anda membuat akun dengan kami, Anda bertanggung jawab untuk menjaga kerahasiaan akun dan kata sandi Anda dan untuk membatasi akses ke komputer Anda, dan Anda setuju untuk menerima tanggung jawab untuk semua aktivitas yang terjadi di bawah akun atau kata sandi Anda.</p>
+
+                <h4>5. Konten Pengguna</h4>
+                <p>Anda bertanggung jawab penuh atas konten yang Anda posting, unggah, tautkan, atau sediakan melalui Layanan. Anda menjamin bahwa Anda memiliki hak untuk memposting konten tersebut dan bahwa posting konten Anda di atau melalui Layanan tidak melanggar hak privasi, hak publisitas, hak cipta, hak kontrak, atau hak lainnya dari siapa pun.</p>
+
+                <h4>6. Pengakhiran</h4>
+                <p>Kami dapat mengakhiri atau menangguhkan akses Anda ke Layanan kami segera, tanpa pemberitahuan atau kewajiban sebelumnya, atas kebijakan kami sendiri, untuk alasan apa pun, termasuk tanpa batasan jika Anda melanggar Ketentuan.</p>
+                <p>Ketentuan Layanan ini terakhir diperbarui pada 6 Juli 2025.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Big Data Info Modal (New) -->
+    <div class="modal" id="bigDataInfoModal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal-id="bigDataInfoModal">&times;</span>
+            <h3 class="modal-title">Detail Solusi Big Data D'CORPS</h3>
+            <div class="modal-body">
+                <h4>Mengapa Big Data Penting?</h4>
+                <p>Big Data merujuk pada volume data yang sangat besar dan kompleks yang tidak dapat diproses atau dianalisis menggunakan metode pemrosesan data tradisional. Dengan memanfaatkan Big Data, bisnis dapat memperoleh wawasan yang lebih dalam tentang perilaku pelanggan, tren pasar, dan efisiensi operasional.</p>
+                <p>Ini memungkinkan pengambilan keputusan yang lebih cerdas, personalisasi layanan, dan pengembangan produk baru yang inovatif.</p>
+
+                <h4>Layanan Big Data Kami Meliputi:</h4>
+                <ul>
+                    <li><strong>Pengumpulan Data:</strong> Mengintegrasikan data dari berbagai sumber seperti media sosial, sensor IoT, transaksi, dan log server.</li>
+                    <li><strong>Penyimpanan Data:</strong> Solusi penyimpanan yang skalabel dan aman menggunakan teknologi seperti Hadoop Distributed File System (HDFS) dan database NoSQL.</li>
+                    <li><strong>Pemrosesan Data:</strong> Memanfaatkan kerangka kerja seperti Apache Spark untuk pemrosesan data real-time dan batch yang cepat.</li>
+                    <li><strong>Analisis Data:</strong> Menerapkan algoritma Machine Learning dan AI untuk analisis prediktif, segmentasi pelanggan, deteksi anomali, dan banyak lagi.</li>
+                    <li><strong>Visualisasi Data:</strong> Mengubah data kompleks menjadi grafik dan dasbor yang mudah dipahami untuk wawasan yang cepat.</li>
+                </ul>
+
+                <h4>Contoh Penerapan Big Data:</h4>
+                <ul>
+                    <li><strong>Ritel:</strong> Menganalisis pola pembelian untuk rekomendasi produk yang dipersonalisasi.</li>
+                    <li><strong>Keuangan:</strong> Mendeteksi penipuan secara real-time dan menilai risiko kredit.</li>
+                    <li><strong>Kesehatan:</strong> Mengidentifikasi tren penyakit dan mengoptimalkan perawatan pasien.</li>
+                    <li><strong>Manufaktur:</strong> Memprediksi kegagalan peralatan dan mengoptimalkan rantai pasokan.</li>
+                </ul>
+
+                <h4>Data Pertumbuhan Industri Big Data (Global):</h4>
+                <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background-color: var(--primary); color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Tahun</th>
+                            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Ukuran Pasar (Miliar USD)</th>
+                            <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Tingkat Pertumbuhan (CAGR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2020</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">138.9</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2021</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">162.6</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">17.1%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2022</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">189.7</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">16.7%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2023</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">221.3</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">16.7%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2024 (Estimasi)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">258.0</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">16.6%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2025 (Estimasi)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">300.0</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">16.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 12px; color: var(--gray); margin-top: 10px;"><em>*Data estimasi berdasarkan tren industri global.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Loading Overlay functionality
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        window.addEventListener('load', () => {
+            // Sembunyikan overlay loading setelah semua dimuat
+            loadingOverlay.classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links and active nav link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Tutup menu mobile jika terbuka
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return; // Abaikan jika hanya '#'
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset untuk fixed header
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Hapus kelas 'active' dari semua tautan navigasi
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                // Tambahkan kelas 'active' ke tautan yang diklik
+                this.classList.add('active');
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinksElements = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 90; // Offset untuk header
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksElements.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+
+        // Modal Handling
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+        const registerLink = document.getElementById('registerLink');
+        const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+        const backToLoginLink = document.getElementById('backToLoginLink');
+        const backToLoginFromForgotLink = document.getElementById('backToLoginFromForgotLink');
+
+        const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+        const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+        const termsOfServiceLink = document.getElementById('termsOfServiceLink');
+        const termsOfServiceModal = document.getElementById('termsOfServiceModal');
+        const closeModals = document.querySelectorAll('.close-modal');
+        const paymentModal = document.getElementById('paymentModal');
+        const exploreBigDataBtn = document.getElementById('exploreBigDataBtn');
+        const bigDataInfoModal = document.getElementById('bigDataInfoModal');
+
+        function openModal(modalElement) {
+            modalElement.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Mencegah scrolling background
+        }
+
+        function closeModal(modalElement) {
+            modalElement.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Mengembalikan scrolling
+        }
+
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(loginModal);
+        });
+
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(loginModal);
+            openModal(registerModal);
+        });
+
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(loginModal);
+            openModal(forgotPasswordModal);
+        });
+
+        backToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(registerModal);
+            openModal(loginModal);
+        });
+
+        backToLoginFromForgotLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(forgotPasswordModal);
+            openModal(loginModal);
+        });
+
+        privacyPolicyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(privacyPolicyModal);
+        });
+
+        termsOfServiceLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(termsOfServiceModal);
+        });
+
+        if (exploreBigDataBtn) {
+            exploreBigDataBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(bigDataInfoModal);
+            });
+        }
+
+        closeModals.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modalId = button.dataset.modalId;
+                const modalElement = document.getElementById(modalId);
+                if (modalElement) {
+                    closeModal(modalElement);
+                }
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                closeModal(e.target);
+            }
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Fungsi untuk menampilkan kotak pesan kustom
+        function showMessageBox(message, type = 'info') { // Default ke 'info' (warna primary)
+            const messageBox = document.createElement('div');
+            messageBox.classList.add('message-box', type);
+            messageBox.textContent = message;
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => {
+                messageBox.style.opacity = 1;
+            }, 10);
+
+            setTimeout(() => {
+                messageBox.style.opacity = 0;
+                messageBox.addEventListener('transitionend', () => messageBox.remove());
+            }, 3000);
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showMessageBox('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.', 'success');
+            contactForm.reset();
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (email && password) {
+                showMessageBox('Berhasil masuk! Selamat datang kembali.', 'success');
+                loginForm.reset();
+                closeModal(loginModal);
+            } else {
+                showMessageBox('Email dan kata sandi diperlukan.', 'error');
+            }
+        });
+
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showMessageBox('Kata sandi tidak cocok!', 'error');
+                return;
+            }
+            if (name && email && password) {
+                showMessageBox('Pendaftaran berhasil! Silakan masuk.', 'success');
+                registerForm.reset();
+                closeModal(registerModal);
+                openModal(loginModal);
+            } else {
+                showMessageBox('Semua kolom harus diisi.', 'error');
+            }
+        });
+
+        forgotPasswordForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('forgotEmail').value;
+            if (email) {
+                showMessageBox(`Tautan reset kata sandi telah dikirim ke ${email}.`, 'info');
+                forgotPasswordForm.reset();
+                closeModal(forgotPasswordModal);
+            } else {
+                showMessageBox('Email diperlukan untuk reset kata sandi.', 'error');
+            }
+        });
+
+        // Handle pricing button clicks to open payment modal
+        const selectPlanButtons = document.querySelectorAll('.select-plan-btn');
+        const selectedPlanInput = document.getElementById('selectedPlan');
+        const selectedPriceInput = document.getElementById('selectedPrice');
+
+        selectPlanButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const plan = button.dataset.plan;
+                const price = button.dataset.price;
+                selectedPlanInput.value = plan;
+                selectedPriceInput.value = price;
+                openModal(paymentModal);
+            });
+        });
+
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const plan = selectedPlanInput.value;
+            const price = selectedPriceInput.value;
+            const paymentMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!paymentMethodRadio) {
+                showMessageBox('Silakan pilih metode pembayaran.', 'error');
+                return;
+            }
+            const paymentMethod = paymentMethodRadio.value;
+            
+            let accountNumberInfo = '';
+            if (paymentMethod === 'transfer_bank') {
+                accountNumberInfo = 'Nomor Rekening: BCA 1234567890 an. D\'CORPS';
+            } else if (paymentMethod === 'dana') {
+                accountNumberInfo = 'Nomor DANA: 0812-3456-7890 an. D\'CORPS';
+            } else if (paymentMethod === 'ovo') {
+                accountNumberInfo = 'Nomor OVO: 0812-9876-5432 an. D\'CORPS';
+            }
+
+            showMessageBox(`Anda telah memilih paket ${plan} seharga ${price} dengan pembayaran melalui ${paymentMethod}. Silakan transfer ke ${accountNumberInfo}. Ini adalah simulasi pembayaran.`, 'success');
+            paymentForm.reset();
+            closeModal(paymentModal);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Counter Animation
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            let startTime = null;
+
+            function easeOutQuad(t) {
+                return t * (2 - t);
+            }
+
+            function animate(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = easeOutQuad(progress);
+                element.textContent = Math.floor(start + easedProgress * (target - start));
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        const statsSection = document.querySelector('.stats');
+        let counted = false;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    const clientsCount = document.getElementById('clientsCount');
+                    const projectsCount = document.getElementById('projectsCount');
+                    const teamCount = document.getElementById('teamCount');
+                    const countriesCount = document.getElementById('countriesCount');
+
+                    animateCounter(clientsCount, parseInt(clientsCount.dataset.target));
+                    animateCounter(projectsCount, parseInt(projectsCount.dataset.target));
+                    animateCounter(teamCount, parseInt(teamCount.dataset.target));
+                    animateCounter(countriesCount, parseInt(countriesCount.dataset.target));
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Service Tabs
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                const activeContent = document.getElementById(tabId);
+                activeContent.classList.add('active');
+
+                const serviceContent = activeContent.querySelector('.service-content');
+                serviceContent.classList.remove('content-visible');
+                void serviceContent.offsetWidth; // Trigger reflow to restart animation
+                serviceContent.classList.add('content-visible');
+            });
+        });
+
+        // Charts
+        let charts = {}; // Objek untuk menyimpan instance chart
+
+        function createChart(ctx, type, data, options, chartId) {
+            // Hancurkan chart yang ada jika sudah ada untuk mencegah masalah inisialisasi ulang
+            if (charts[chartId]) {
+                charts[chartId].destroy();
+            }
+            charts[chartId] = new Chart(ctx, {
+                type: type,
+                data: data,
+                options: options
+            });
+        }
+
+        // Web Development Chart
+        const webDevCtx = document.getElementById('webDevChart').getContext('2d');
+        createChart(webDevCtx, 'bar', {
+            labels: ['Perencanaan', 'Desain', 'Pengembangan', 'Pengujian', 'Peluncuran'],
+            datasets: [{
+                label: 'Linimasa Proyek',
+                data: [10, 20, 40, 20, 10],
+                backgroundColor: 'rgba(74, 103, 110, 0.7)', /* Updated to primary color */
+                borderColor: 'rgba(74, 103, 110, 1)', /* Updated to primary color */
+                borderWidth: 1
+            }]
+        }, {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }, 'webDevChart');
+
+        // Mobile App Chart
+        const mobileAppCtx = document.getElementById('mobileAppChart').getContext('2d');
+        createChart(mobileAppCtx, 'doughnut', {
+            labels: ['iOS', 'Android', 'Lintas Platform'],
+            datasets: [{
+                data: [35, 45, 20],
+                backgroundColor: [
+                    'rgba(74, 103, 110, 0.7)', /* Updated to primary color */
+                    'rgba(16, 185, 129, 0.7)',
+                    'rgba(224, 216, 176, 0.7)' /* Updated to secondary color */
+                ],
+                borderColor: [
+                    'rgba(74, 103, 110, 1)', /* Updated to primary color */
+                    'rgba(16, 185, 129, 1)',
+                    'rgba(224, 216, 176, 1)' /* Updated to secondary color */
+                ],
+                borderWidth: 1
+            }]
+        }, {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }, 'mobileAppChart');
+
+        // Cloud Chart
+        const cloudCtx = document.getElementById('cloudChart').getContext('2d');
+        createChart(cloudCtx, 'line', {
+            labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Pertumbuhan Adopsi Cloud',
+                data: [20, 30, 45, 60, 75, 90],
+                fill: true,
+                backgroundColor: 'rgba(74, 103, 110, 0.2)', /* Updated to primary color */
+                borderColor: 'rgba(74, 103, 110, 1)', /* Updated to primary color */
+                tension: 0.4
+            }]
+        }, {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }, 'cloudChart');
+
+        // Marketing Chart
+        const marketingCtx = document.getElementById('marketingChart').getContext('2d');
+        createChart(marketingCtx, 'radar', {
+            labels: ['SEO', 'Media Sosial', 'Konten', 'PPC', 'Email', 'Analisis'],
+            datasets: [{
+                label: 'Strategi Pemasaran',
+                data: [85, 75, 90, 70, 80, 95],
+                backgroundColor: 'rgba(224, 216, 176, 0.2)', /* Updated to secondary color */
+                borderColor: 'rgba(224, 216, 176, 1)', /* Updated to secondary color */
+                pointBackgroundColor: 'rgba(224, 216, 176, 1)', /* Updated to secondary color */
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(224, 216, 176, 1)' /* Updated to secondary color */
+            }]
+        }, {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }, 'marketingChart');
+
+        // Big Data Chart (New Chart)
+        const bigDataCtx = document.getElementById('bigDataChart').getContext('2d');
+        createChart(bigDataCtx, 'line', {
+            labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+            datasets: [{
+                label: 'Volume Data (Zettabyte)',
+                data: [59, 74, 97, 120, 149, 181],
+                fill: true,
+                backgroundColor: 'rgba(74, 103, 110, 0.2)', /* Updated to primary color */
+                borderColor: 'rgba(74, 103, 110, 1)', /* Updated to primary color */
+                tension: 0.4,
+                pointBackgroundColor: 'rgba(74, 103, 110, 1)', /* Updated to primary color */
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(74, 103, 110, 1)' /* Updated to primary color */
+            }, {
+                label: 'Pertumbuhan Analisis (Indeks)',
+                data: [30, 40, 55, 70, 85, 100],
+                fill: false,
+                borderColor: 'rgba(224, 216, 176, 1)', /* Updated to secondary color */
+                tension: 0.4,
+                pointBackgroundColor: 'rgba(224, 216, 176, 1)', /* Updated to secondary color */
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(224, 216, 176, 1)' /* Updated to secondary color */
+            }]
+        }, {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Volume / Indeks'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tahun'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.dataset.label === 'Volume Data (Zettabyte)') {
+                                label += context.raw + ' ZB';
+                            } else {
+                                label += context.raw + ' Indeks';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }, 'bigDataChart');
+
+
+        // Scroll Animation for content within sections
+        const elementsToAnimate = document.querySelectorAll(
+            '.stats .container, ' +
+            '.about-content, ' +
+            '.features-grid, ' +
+            '.service-content, ' +
+            '.bigdata-content, ' +
+            '.testimonial-grid, ' +
+            '.pricing-grid, ' +
+            '.team-grid, ' +
+            '.client-logos, ' +
+            '.contact-info, ' +
+            '.contact-form, ' +
+            '.cta-section .container'
+        );
+
+        const contentObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('content-visible');
+                    contentObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        elementsToAnimate.forEach(element => {
+            element.classList.add('content-hidden');
+            contentObserver.observe(element);
+        });
+
+        // Navbar Scroll Behavior (Transparency and Hide/Show)
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            // Tambah/hapus kelas scrolled untuk background dan shadow
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+
+            // Sembunyikan/tampilkan saat scroll
+            if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Load More Testimonials functionality
+        const testimonialCards = document.querySelectorAll('#testimonialGrid .testimonial-card');
+        const loadMoreTestimonialsButton = document.getElementById('loadMoreTestimonials');
+        const initialTestimonialDisplayCount = 3;
+        const loadMoreTestimonialStep = 3;
+
+        let currentlyDisplayedTestimonials = initialTestimonialDisplayCount;
+
+        function updateTestimonialVisibility() {
+            testimonialCards.forEach((card, index) => {
+                if (index < currentlyDisplayedTestimonials) {
+                    card.classList.remove('hidden-card');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            if (currentlyDisplayedTestimonials >= testimonialCards.length) {
+                loadMoreTestimonialsButton.style.display = 'none';
+            } else {
+                loadMoreTestimonialsButton.style.display = 'inline-block';
+            }
+        }
+
+        if (loadMoreTestimonialsButton) {
+            loadMoreTestimonialsButton.addEventListener('click', () => {
+                currentlyDisplayedTestimonials += loadMoreTestimonialStep;
+                updateTestimonialVisibility();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTestimonialVisibility();
+        });
+
+        // Load More Features functionality
+        const featureCards = document.querySelectorAll('#featuresGrid .feature-card');
+        const loadMoreFeaturesButton = document.getElementById('loadMoreFeatures');
+        const initialFeatureDisplayCount = 3;
+        const loadMoreFeatureStep = 3;
+
+        let currentlyDisplayedFeatures = initialFeatureDisplayCount;
+
+        function updateFeatureVisibility() {
+            featureCards.forEach((card, index) => {
+                if (index < currentlyDisplayedFeatures) {
+                    card.classList.remove('hidden-card');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            if (currentlyDisplayedFeatures >= featureCards.length) {
+                loadMoreFeaturesButton.style.display = 'none';
+            } else {
+                loadMoreFeaturesButton.style.display = 'inline-block';
+            }
+        }
+
+        if (loadMoreFeaturesButton) {
+            loadMoreFeaturesButton.addEventListener('click', () => {
+                currentlyDisplayedFeatures += loadMoreFeatureStep;
+                updateFeatureVisibility();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateFeatureVisibility();
+        });
+
+        // Load More Team functionality
+        const teamCards = document.querySelectorAll('#teamGrid .team-member');
+        const loadMoreTeamButton = document.getElementById('loadMoreTeam');
+        const initialTeamDisplayCount = 4;
+        const loadMoreTeamStep = 4;
+
+        let currentlyDisplayedTeam = initialTeamDisplayCount;
+
+        function updateTeamVisibility() {
+            teamCards.forEach((card, index) => {
+                if (index < currentlyDisplayedTeam) {
+                    card.classList.remove('hidden-card');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            if (currentlyDisplayedTeam >= teamCards.length) {
+                loadMoreTeamButton.style.display = 'none';
+            } else {
+                loadMoreTeamButton.style.display = 'inline-block';
+            }
+        }
+
+        if (loadMoreTeamButton) {
+            loadMoreTeamButton.addEventListener('click', () => {
+                currentlyDisplayedTeam += loadMoreTeamStep;
+                updateTeamVisibility();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTeamVisibility();
+        });
+
+    </script>
+</body>
+</html>
